@@ -1,0 +1,2 @@
+class DidDocument {}
+class ServiceEndpoint {}

@@ -1,0 +1,3 @@
+interface VerifiableCredentialRepo {}
+
+class VerifiableCredential {}
