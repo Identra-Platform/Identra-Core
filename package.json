@@ -1,0 +1,29 @@
+{
+  "name": "@identra/core",
+  "version": "1.0.0",
+  "description": "The foundational codebase powering the Identra ecosystem. Provides shared logic, cryptography, and data models used across all Identra products — from Pass to Gate.",
+  "main": "index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Identra-Platform/Identra-Core.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Identra-Platform/Identra-Core/issues"
+  },
+  "homepage": "https://github.com/Identra-Platform/Identra-Core#readme",
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}
