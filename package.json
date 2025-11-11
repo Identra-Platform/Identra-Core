@@ -9,6 +9,7 @@
     }
   },
   "scripts": {
+    "test-index": "ts-node ./src/index.ts",
     "build": "tsc"
   },
   "repository": {
@@ -24,6 +25,7 @@
   },
   "homepage": "https://github.com/Identra-Platform/Identra-Core#readme",
   "devDependencies": {
+    "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   }
 }
