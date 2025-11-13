@@ -3,7 +3,8 @@ import WebSocket from 'ws';
 export interface RelayMessage {
   from: string;
   to: string;
-  payload: any;
+  payload: string;
+  signature: string;
 }
 
 export interface DidCommTransport {
