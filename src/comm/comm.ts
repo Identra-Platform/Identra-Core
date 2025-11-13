@@ -1,38 +1,17 @@
+import { v4 as uuidv4 } from "uuid";
+import type { KeyPair } from "../wallet/key.js";
 import type { Did } from "../identity/did.js";
-
-export interface Attachment {
-  id: string;
-  mimeType: string;
-  data: unknown;
-  description?: string;
-}
+import type { RelayMessage } from "./transport.js";
 
 export class DidCommMessage {
-  id: string;
-  type: string;
-  from?: Did | undefined;
-  to: Did[];
-  created_at: number;
-  body: Record<string, unknown>;
-  attachments?: Attachment[] | undefined;
-
-  constructor(params: {
-    id: string;
-    type: string;
-    from?: Did;
-    to: Did[];
-    created_at?: number;
-    body?: Record<string, unknown>;
-    attachments?: Attachment[];
-  }) {
-    this.id = params.id;
-    this.type = params.type;
-    this.from = params.from;
-    this.to = params.to;
-    this.created_at = params.created_at ?? Math.floor(Date.now() / 1000);
-    this.body = params.body ?? {};
-    this.attachments = params.attachments;
-  }
+  constructor(
+    public id: string = uuidv4(),
+    public type: string = "application/didcomm-encrypted+json",
+    public from: Did,
+    public to: Did[],
+    public body: string,
+    public timestamp: Date = new Date()
+  ) {}
 
   toJSON() {
     return {
@@ -40,23 +19,36 @@ export class DidCommMessage {
       type: this.type,
       from: this.from,
       to: this.to,
-      created_time: this.created_at,
       body: this.body,
-      attachments: this.attachments,
+      timestamp: this.timestamp
     };
   }
 
   static fromJSON(json: any): DidCommMessage {
-    return new DidCommMessage({
-      id: json.id,
-      type: json.type,
-      from: json.from,
-      to: json.to,
-      created_at: json.created_time,
-      body: json.body,
-      attachments: json.attachments,
-    });
+    return new DidCommMessage(
+      json.id,
+      json.type,
+      json.from,
+      json.to,
+      json.body,
+      json.timestamp
+    );
   }
 }
-class DidCommPackager {}
-class DidCommAgent {}
+export class DidCommPackager {
+  constructor(
+    private keyPair: KeyPair
+  ) {}
+
+  pack(commMessage: DidCommMessage): RelayMessage {
+    return {
+      from: commMessage.from.toString(),
+      to: commMessage.to.toString(),
+      payload: this.keyPair.encrypt(
+        JSON.stringify(commMessage.toJSON())
+      )
+    };
+  }
+  //unpack(relayMessage: RelayMessage): DidCommMessage {}
+}
+export class DidCommAgent {}

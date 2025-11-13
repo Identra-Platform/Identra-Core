@@ -1,0 +1,5 @@
+{
+  "anchorUrl": "localhost",
+  "relayPort": 8080,
+  "registryPort": 3000
+}

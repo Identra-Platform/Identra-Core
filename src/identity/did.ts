@@ -1,5 +1,17 @@
-export interface Did {}
+export interface Did {
+  id: string;
 
-class WebDid implements Did {}
-class EthDid implements Did {}
+  toString(): string;
+}
+
+export class EthDid implements Did {
+  constructor(
+    public id: string
+  ) {}
+
+  toString(): string {
+    return `did:ethr:${this.id}`;
+  }
+}
+
 class DidResolver {}
