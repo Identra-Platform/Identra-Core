@@ -19,15 +19,5 @@ let message = new DidCommMessage(
 let packager = new DidCommPackager(new KeyPair());
 let relayMessage = packager.pack(message);
 
-const ws = new WebSocket(`ws://localhost:8080`);
-
-ws.on("open", () => {
-  ws.send(JSON.stringify({
-    did: 'did:ethr:0xabcd1234'
-  }));
-
-  let transport = new DidCommWebSocket(ws);
-  transport.send(relayMessage);
-
-  ws.close();
-});
+console.log(relayMessage);
+console.log(packager.unpack(relayMessage).toJSON());

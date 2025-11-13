@@ -49,6 +49,11 @@ export class DidCommPackager {
       )
     };
   }
-  //unpack(relayMessage: RelayMessage): DidCommMessage {}
+  unpack(relayMessage: RelayMessage): DidCommMessage {
+    const message = this.keyPair.decrypt(relayMessage.payload);
+    return DidCommMessage.fromJSON(
+      JSON.parse(message)
+    );
+  }
 }
 export class DidCommAgent {}

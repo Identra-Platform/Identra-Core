@@ -8,6 +8,9 @@ export class KeyPair {
   encrypt(raw: string): string {
     return btoa(raw);
   }
+  decrypt(encrypted: string): string {
+    return atob(encrypted);
+  }
 }
 class PublicKey implements StoredKey {}
 class PrivateKey implements StoredKey {}
