@@ -1,60 +1,33 @@
-import { v4 as uuidv4 } from "uuid";
-import type { KeyPair, PublicKey, StoredKey } from "../wallet/key.js";
-import type { Did } from "../identity/did.js";
-import type { RelayMessage } from "./transport.js";
+import { DidResolver, type Did } from "../identity/did.js";
+import { KeyPair, KeyPurpose } from "../wallet/key.js";
+import { DidCommMessage } from "./message.js";
+import { DidCommPackager } from "./packager.js";
+import type { DidCommTransport } from "./transport.js";
 
-export class DidCommMessage {
+export class DidCommAgent {
   constructor(
-    public id: string = uuidv4(),
-    public type: string = "application/didcomm-encrypted+json",
-    public from: Did,
-    public to: Did[],
-    public body: string,
-    public timestamp: Date = new Date()
-  ) {}
-
-  toJSON() {
-    return {
-      id: this.id,
-      type: this.type,
-      from: this.from,
-      to: this.to,
-      body: this.body,
-      timestamp: this.timestamp
-    };
+    private sender: Did,
+    private keyPair: KeyPair,
+    private transport: DidCommTransport,
+    private resolver: DidResolver = new DidResolver(),
+    private packager: DidCommPackager = new DidCommPackager()
+  ) {
+    transport.send({
+      from: sender.toString(),
+      to: [],
+      payload: JSON.stringify({
+        did: sender.toString()
+      }),
+      signature: "none"
+    });
   }
 
-  static fromJSON(json: any): DidCommMessage {
-    return new DidCommMessage(
-      json.id,
-      json.type,
-      json.from,
-      json.to,
-      json.body,
-      json.timestamp
-    );
+  async send(to: Did[], body: string): Promise<void> {
+    const publicKey = (await this.resolver.resolve(this.sender)).publicKeys.get(KeyPurpose.Encryption);
+    const message = new DidCommMessage(this.sender, to, body);
+    const encrypted = this.packager.pack(message, new KeyPair(this.keyPair.privateKey, publicKey));
+
+    this.transport.send(encrypted);
   }
+  onMessage(callback: (message: DidCommMessage) => void): void {}
 }
-export class DidCommPackager {
-  pack(commMessage: DidCommMessage, keyPair: KeyPair): RelayMessage {
-    return {
-      from: commMessage.from.toString(),
-      to: commMessage.to.toString(),
-      payload: keyPair.encrypt(
-        JSON.stringify(commMessage.toJSON())
-      ),
-      signature: keyPair.sign(JSON.stringify(
-        commMessage.toJSON()
-      ))
-    };
-  }
-  unpack(relayMessage: RelayMessage, keyPair: KeyPair): DidCommMessage | null {
-    const message = keyPair.decrypt(relayMessage.payload);
-    if (!keyPair.verifySignature(message, relayMessage.signature)) return null;
-
-    return DidCommMessage.fromJSON(
-      JSON.parse(message)
-    );
-  }
-}
-export class DidCommAgent {}

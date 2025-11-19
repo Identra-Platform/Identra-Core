@@ -1,11 +1,5 @@
 import WebSocket from 'ws';
-
-export interface RelayMessage {
-  from: string;
-  to: string;
-  payload: string;
-  signature: string;
-}
+import type { RelayMessage } from './message.js';
 
 export interface DidCommTransport {
   send(message: RelayMessage): Promise<void>;

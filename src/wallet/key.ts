@@ -1,7 +1,9 @@
 export interface StoredKey {}
 interface KeyStore {}
 
-enum KeyPurpose {}
+export enum KeyPurpose {
+  Encryption
+}
 
 class Enrypted {}
 export class KeyPair {
