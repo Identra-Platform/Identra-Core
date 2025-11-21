@@ -1,3 +1,4 @@
 interface IdentityRepo {}
 
-class Identity {}
+export class Identity {}
+export class IdentityManager {}
