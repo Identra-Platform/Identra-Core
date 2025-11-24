@@ -1,7 +1,7 @@
-export abstract class Wallet {}
+import type { KeyPair } from "./key.js";
 
-class Bip32Wallet extends Wallet {}
-
-export interface WalletManager {
-  
+export abstract class Wallet {
+  abstract generateKeyPair(): KeyPair;
 }
+
+//class Bip32Wallet extends Wallet {}

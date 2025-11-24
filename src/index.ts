@@ -1,58 +1,10 @@
-import { DIDDocument, Service, VerificationMethod } from "./identity/did-document.js";
+import { KeyAlgorithm } from "./core/core-types.js";
+import { KeyDid, KeyDidFactory } from "./identity/did.js";
+import { KeyPair, KeyPurpose } from "./wallet/key.js";
 
-const json = {
-  "@context": "https://www.w3.org/ns/did/v1",
-  id: "did:web:example.com",
-  verificationMethod: [
-    {
-      id: "key:1",
-      type: "JsonWebKey2020",
-      controller: "did:web:example.com",
-      publicKeyJwk: {
-        kty: "OKP",
-        crv: "Ed25519",
-        x: "abc123"
-      }
-    }
-  ],
-  service: [
-    {
-      id: "msg",
-      type: "DIDCommMessaging",
-      serviceEndpoint: "https://example.com/inbox"
-    }
-  ]
-};
+const keypair = KeyPair.generateKeyPair('1234', KeyPurpose.Encryption, KeyAlgorithm.Ed25519);
 
-/*const didDoc1 = new DIDDocument(
-  'https://www.w3.org/ns/did/v1',
-  'did:web:0x123456789abcd',
-  undefined,
-  'did:web:0x123456789abcd',
-  [
-    new VerificationMethod(
-      'keys:1',
-      'assertionMethod',
-      'did:web:0x123456789abcd',
-      {
-        publicKeyBase58: 'BASE58_PUBLIC_KEY'
-      }
-    )
-  ],
-  undefined,
-  ['keys:1'],
-  undefined,
-  undefined,
-  undefined,
-  [
-    new Service(
-      '12345',
-      'website',
-      'https://www.example.com'
-    )
-  ]
-);*/
+const factory = new KeyDidFactory();
+const did = factory.createDid(keypair.publicKey.key);
 
-const didDoc = DIDDocument.fromJSON(json);
-
-console.log(didDoc.toJSON());
+console.log(await did.resolve());

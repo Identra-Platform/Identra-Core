@@ -1,5 +1,10 @@
 import { Encrypted, PrivateKey, PublicKey, type StoredKey, KeyPurpose, KeyStore } from "../wallet/key.js";
 
+export enum KeyAlgorithm {
+    Ed25519,
+    //Secp256k1
+}
+
 export interface CryptoEngineInterface {
     encrypt(privateKey: PrivateKey, passphrase: string): Promise<Encrypted>;
     decrypt(storedKey: StoredKey, passphrase: string): Promise<Uint8Array>;

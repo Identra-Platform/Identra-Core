@@ -1,10 +1,10 @@
-import { type KeyPairInterface } from "../core/core-types.js";
+import { KeyAlgorithm, type KeyPairInterface } from "../core/core-types.js";
 import { CryptoEngine } from "./crypto.js";
 import nacl from "tweetnacl";
 
 export interface StoredKey {
   id: string;
-  type: string;
+  type: KeyAlgorithm;
   key: Uint8Array;
   meta?: Record<string, any>;
 }
@@ -40,18 +40,18 @@ export class Encrypted {
 }
 
 export class PublicKey implements StoredKey {
-  constructor(public id: string, public type: string, public key: Uint8Array) {}
+  constructor(public id: string, public type: KeyAlgorithm, public key: Uint8Array) {}
 }
 
 export class PrivateKey implements StoredKey {
-  constructor(public id: string, public type: string, public key: Uint8Array) {}
+  constructor(public id: string, public type: KeyAlgorithm, public key: Uint8Array) {}
   derivePublicKey(): PublicKey {
     return new PublicKey(this.id, this.type, this.key);
   }
 }
 
 class StorageKey implements StoredKey {
-  constructor(public id: string, public type: string, public key: Uint8Array) {}
+  constructor(public id: string, public type: KeyAlgorithm, public key: Uint8Array) {}
 }
 
 export class KeyPair implements KeyPairInterface {
@@ -59,14 +59,12 @@ export class KeyPair implements KeyPairInterface {
     public privateKey: PrivateKey,
     public purpose: KeyPurpose,
     public publicKey: PublicKey
-  ) {
-    this.publicKey ??= privateKey.derivePublicKey();
-  }
+  ) {}
 
   private keyStore: KeyStore = new KeyStore();
 
-  static generateKeyPair(id: string, purpose: KeyPurpose, type: string): KeyPair {
-    const keyPair = nacl.sign.keyPair();
+  static generateKeyPair(id: string, purpose: KeyPurpose, type: KeyAlgorithm): KeyPair {
+    const keyPair = nacl.sign.keyPair(); // Ed25519 Key Generation
     const privateKey = new PrivateKey(id, type, keyPair.secretKey);
     const publicKey = new PublicKey(id, type, keyPair.publicKey);
     return new KeyPair(privateKey, purpose, publicKey);
