@@ -14,7 +14,6 @@ export interface Did {
 
 export class KeyDid implements Did {
   constructor(
-    private base58PublicKey: string,
     private multibasePublicKey: string
   ) {}
 
@@ -27,9 +26,15 @@ export class KeyDid implements Did {
           id: "key:1",
           type: "Ed25519VerificationKey2018",
           controller: this.toString(),
-          publicKeyBase58: this.base58PublicKey
+          publicKeyMultibase: this.multibasePublicKey
         }
-      ]
+      ],
+      assertionMethod: ['key:1'],
+      authentication: ['key:1'],
+      capabilityInvocation: ['key:1'],
+      capabilityDelegation: ['key:1'],
+      keyAgreement: ['key:1'],
+      service: []
     });
   }
 
@@ -42,7 +47,7 @@ export class KeyDidFactory implements DidFactory {
   createDid(publicKey: Uint8Array): Did {
     const multibasePublicKey =this.encodePublicKey(publicKey);
 
-    return new KeyDid(bases.base58btc.encode(publicKey), multibasePublicKey);
+    return new KeyDid(multibasePublicKey);
   }
 
   private encodePublicKey(publicKey: Uint8Array): string {
@@ -58,7 +63,7 @@ export class KeyDidFactory implements DidFactory {
 }
 
 export class DidResolver {
-  async resolve(did: Did): Promise<DIDDocument> {
+  static async resolve(did: Did): Promise<DIDDocument> {
     return did.resolve()
   }
 }
