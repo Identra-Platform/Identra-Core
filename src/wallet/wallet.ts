@@ -1,15 +1,15 @@
 import type { Identity } from "../identity/identity.js";
-import type { KeyPair } from "./key.js";
+import type { KeyPair, KeyPurpose } from "./key.js";
 
 export class Wallet {
   private identities: Identity[] = [];
   private keypairs: KeyPair[] = [];
 
-  private keyAssignments: Map<Identity, KeyPair[]> = new Map();
+  private keyAssignments: Map<Identity, Map<KeyPurpose, KeyPair>> = new Map();
 
   addIdentity(identity: Identity): void {
     this.identities.push(identity);
-    this.keyAssignments.set(identity, []);
+    this.keyAssignments.set(identity, new Map);
     identity.setWallet(this);
   }
 
@@ -18,13 +18,18 @@ export class Wallet {
   }
 
   assignKeyPairToIdentity(identity: Identity, keyPair: KeyPair): void {
-    const list = this.keyAssignments.get(identity);
-    if (!list) return;
-    list.push(keyPair);
+    let existing = this.keyAssignments.get(identity);
+    if (!existing) return;
+
+    existing.set(keyPair.purpose, keyPair);
   }
 
-  getKeyPairsForIdentity(identity: Identity): KeyPair[] {
-    return this.keyAssignments.get(identity) ?? [];
+  getKeyPairForIdentity(identity: Identity, purpose: KeyPurpose): KeyPair | null {
+    return this.keyAssignments.get(identity)?.get(purpose) ?? null;
+  }
+
+  getAllKeyPairsForIdentity(identity: Identity): Map<KeyPurpose, KeyPair> {
+    return new Map(this.keyAssignments.get(identity));
   }
 
   generateKeyPair(): KeyPair | void {}

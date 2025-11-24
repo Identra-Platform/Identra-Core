@@ -16,4 +16,4 @@ wallet.addIdentity(idenitity);
 wallet.addKeyPair(keypair);
 wallet.assignKeyPairToIdentity(idenitity, keypair);
 
-console.log(idenitity.getKeyPairs()[0]);
+console.log(idenitity.getAllKeyPairs());
