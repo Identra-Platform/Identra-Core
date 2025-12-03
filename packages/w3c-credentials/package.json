@@ -1,0 +1,19 @@
+{
+  "name": "w3c-credentials",
+  "version": "1.0.0-SNAPSHOT",
+  "main": "kotlin/w3c-credentials.js",
+  "devDependencies": {
+    "typescript": "5.5.4"
+  },
+  "dependencies": {
+    "ws": "8.18.0",
+    "@js-joda/core": "3.2.0",
+    "format-util": "^1.0.5",
+    "jose": "5.2.3",
+    "canonicalize": "2.0.0",
+    "uuid": "9.0.1"
+  },
+  "peerDependencies": {},
+  "optionalDependencies": {},
+  "bundledDependencies": []
+}

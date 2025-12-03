@@ -1,0 +1,16 @@
+{
+  "name": "waltid-identity-waltid-libraries-sdjwt-waltid-sdjwt",
+  "version": "1.0.0-SNAPSHOT",
+  "main": "kotlin/waltid-identity-waltid-libraries-sdjwt-waltid-sdjwt.js",
+  "devDependencies": {
+    "typescript": "5.5.4"
+  },
+  "dependencies": {
+    "jose": "5.2.3",
+    "@js-joda/core": "3.2.0",
+    "format-util": "^1.0.5"
+  },
+  "peerDependencies": {},
+  "optionalDependencies": {},
+  "bundledDependencies": []
+}

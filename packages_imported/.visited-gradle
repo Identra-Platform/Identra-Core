@@ -1,0 +1,230 @@
+{
+  "version": "9",
+  "items": {
+    "db1e11384d9c145d1ba6693345e25742": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-js/2.1.20/5b335b71e2d6fa1c64b80753498958d18596e43e/kotlin-stdlib-js-2.1.20.klib"
+    },
+    "42f05d85f10267ae8c780fb4bac28f2c": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-serialization-json-js/1.8.0/8a2d869e76ce981aada9ac85caef17c2ed3b5e02/kotlinx-serialization-json-js-1.8.0.klib"
+    },
+    "0e4b86de8aa74e249712c7ba13e98e68": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-serialization-core-js/1.8.0/ae6df61da8e0a1f5d77b39d4f0efa6fb24779564/kotlinx-serialization-core-js-1.8.0.klib"
+    },
+    "4341b47141b70ff4531d018f1c89797d": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-dom-api-compat/2.1.20/d261f5f9a99e24ba6dda3688e67b2c43dac99a48/kotlin-dom-api-compat-2.1.20.klib"
+    },
+    "3f1512bff8aa7f29ce29e75d9ea18b08": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-js/1.10.1/9112578326a64513c6df1efdb6fae1d75457ac02/kotlinx-coroutines-core-js-1.10.1.klib"
+    },
+    "858404fde54d6639e1ac43a05516a54f": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/atomicfu-js/0.26.1/ba91e363bea53a576f68a7678e2cb65872b28e2b/atomicfu-js-0.26.1.klib"
+    },
+    "3f5dd313826bd4b4a2147adb76540165": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-datetime-js/0.6.2/9c4811ca560d2f41f82175b1722112e26669e023/kotlinx-datetime-js-0.6.2.klib",
+      "target": "Kotlin-DateTime-library-kotlinx-datetime/0.6.2"
+    },
+    "56fba3b4cc5601f6c47f1af45d2fc529": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-client-core-js/3.1.2/8d1e6309c2021d9795b82e246c53ab9bd049bf4a/ktor-client-core-js-3.1.2.klib",
+      "target": "ktor-ktor-client-ktor-client-core/3.1.2"
+    },
+    "ef18ab5871e21cd2d3fbffb0d81977e3": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-http-cio-js/3.1.2/a741539ed609854bc595cee9482d10ac10b44990/ktor-http-cio-js-3.1.2.klib"
+    },
+    "273af7b27d70533c57a051892d7ae6d6": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-http-js/3.1.2/d2ed92eedf325131538def5ba73ff035765cd7df/ktor-http-js-3.1.2.klib"
+    },
+    "105e85a2f147119ea5211e82b86d7042": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils-js/3.1.2/942c163defee24479271c0eba7399c55a4cc7921/ktor-utils-js-3.1.2.klib"
+    },
+    "765f822f7de87e98f64b4ad278da9a6f": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-io-js/3.1.2/20b9172fa984b88c414364b1cf50e5339ad6f8f4/ktor-io-js-3.1.2.klib"
+    },
+    "d6a970c21658969398cb0be49433e49c": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/atomicfu-js/0.27.0/4c0892a34d154b17bf6f59c78801ee1a85c2994c/atomicfu-js-0.27.0.klib"
+    },
+    "cfbd571cfe13f281b3c2a4063733ac28": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-io-core-js/0.6.0/863ab16694a7a9c7166feb692e8ae143e76ecc4f/kotlinx-io-core-js-0.6.0.klib"
+    },
+    "2284d9335afbb78011d8aefe6bbca4fc": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-io-bytestring-js/0.6.0/8aa80f8d9e359bde9085c772e0037dad7c675edd/kotlinx-io-bytestring-js-0.6.0.klib"
+    },
+    "e289d19ba6184e852d76d8690c3fda0b": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-websocket-serialization-js/3.1.2/57e06c1eb5d742ab22a11d147e7a2ee06cf7246f/ktor-websocket-serialization-js-3.1.2.klib"
+    },
+    "23288722abfbe19c16f8808db6637628": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-serialization-js/3.1.2/c391cadd2f32948ea75f69975d718034cbad08fe/ktor-serialization-js-3.1.2.klib"
+    },
+    "30349530c170f9d5ec04516601b4bcee": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-websockets-js/3.1.2/11ede45e7eb701702cfce592c40b797aee8b9e3b/ktor-websockets-js-3.1.2.klib"
+    },
+    "26a2c3c85c133f3eef730c9f70a7f2d2": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-events-js/3.1.2/b55bba7d307f040190104821bbabcea3d9c43e94/ktor-events-js-3.1.2.klib"
+    },
+    "99f617d51b39a976eebf0f3e1777f6d8": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-sse-js/3.1.2/31e2897a1c5c88d18505d98d271f5d1e733ca0e6/ktor-sse-js-3.1.2.klib"
+    },
+    "c6f06a764f3e5cd82046b589bf79f986": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-client-serialization-js/3.1.2/4b2b3543dc3d792e70ebfc93490f84e5ef57fde8/ktor-client-serialization-js-3.1.2.klib"
+    },
+    "e71f951ac880a247ef82c68e0be41e61": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-client-json-js/3.1.2/35339bd312132824583638b489887f669cf59006/ktor-client-json-js-3.1.2.klib"
+    },
+    "842d873214ea64c5a9b37a474f95ccb6": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-client-content-negotiation-js/3.1.2/313be7f7540bf7d9a24b705eba670262dba791fe/ktor-client-content-negotiation-js-3.1.2.klib"
+    },
+    "fc44333e4fd75dcafc4f7f83be9ad0bd": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-serialization-kotlinx-json-js/3.1.2/6dc3091d684ee2cbd5d9abdda1aa7df220aa6366/ktor-serialization-kotlinx-json-js-3.1.2.klib"
+    },
+    "84730e39a22de110bfb02322c91a6786": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-serialization-json-io-js/1.8.0/5f02d1aac43c869fc31e381973ccd434532055e9/kotlinx-serialization-json-io-js-1.8.0.klib"
+    },
+    "20582bfa664f62a80b034912da8d862e": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-serialization-kotlinx-js/3.1.2/94c0654e6cf625db8e7d9dbeaf349ebc117d0c54/ktor-serialization-kotlinx-js-3.1.2.klib"
+    },
+    "7763f535e60524e3646ee8ce8f6b79b3": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-client-logging-js/3.1.2/f961cb889bb209b77b5e08bccebad4259d14866f/ktor-client-logging-js-3.1.2.klib"
+    },
+    "994b93d6191df7e5575ef17e33f55644": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/io.github.reactivecircus.cache4k/cache4k-js/0.14.0/ef66d80ed4e7f266019c05616d3ae221ef568406/cache4k-js-0.14.0.klib"
+    },
+    "a4e7d50e52154840b474dc28b2312394": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/co.touchlab/stately-iso-collections-js/2.1.0/c4e8d223725d65954519b95a49eefa4fbf1b333a/stately-iso-collections-js-2.1.0.klib"
+    },
+    "325eefd12e989268db80220db7dca838": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/co.touchlab/stately-isolate-js/2.1.0/8db20fea371f53fcf2e869a3b01badb1a1561c5f/stately-isolate-js-2.1.0.klib"
+    },
+    "b43a0aef6ee03ee8627c83dfe9207e66": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/co.touchlab/stately-common-js/2.1.0/610ff6558c1957152f4af6f1fe2916c2396fadd7/stately-common-js-2.1.0.klib"
+    },
+    "27bc0844f718b6bfb59e21565ee402f7": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/co.touchlab/stately-concurrency-js/2.1.0/6f77806e3d0eb9db39b7e74702da4ee2426a5a68/stately-concurrency-js-2.1.0.klib"
+    },
+    "8a6e436dd981567851fb72f605855588": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/dev.whyoleg.cryptography/cryptography-random-js/0.4.0/360821ac7dc6c7c524a9174a970ab438b1d30527/cryptography-random-js-0.4.0.klib"
+    },
+    "a242b83d0a53740a8b9e558f60f10895": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/com.soywiz.korlibs.krypto/krypto-js/4.0.10/17c2cd60c7c7c11647deb4cb49a0c63a6bf75f4f/krypto-js-4.0.10.klib"
+    },
+    "c31d4b86f871ee648d47c66548fbfa57": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.9.0/cd65c21cfd1eec4d44ef09f9f52b6d9f8a720636/kotlin-stdlib-common-1.9.0.jar"
+    },
+    "0526ec7cc895c0e43c128c117b482231": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/io.github.oshai/kotlin-logging-js/7.0.5/939fa304565bc9090bb40fdc1316bdfb3db1916b/kotlin-logging-js-7.0.5.klib"
+    },
+    "08cd8541011afb4812ca1a22543fb66e": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/co.touchlab/stately-strict-js/2.1.0/e7087b8cb7f68d0109997753cfbb8c64c9f10a9b/stately-strict-js-2.1.0.klib"
+    },
+    "d70f4e8cd974d8e8bd7f83eba0d99a5d": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/love.forte.plugin.suspend-transform/suspend-transform-annotation-js/2.1.20-0.12.0/a48ce402ec5b617dd83fe5e816f17a530b13e236/suspend-transform-annotation-js-2.1.20-0.12.0.klib"
+    },
+    "987f6a033aac9652904cdcf487920d11": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/love.forte.plugin.suspend-transform/suspend-transform-runtime-js/2.1.20-0.12.0/1d29ebe51bac40576973063394dddc79efab28e1/suspend-transform-runtime-js-2.1.20-0.12.0.klib"
+    },
+    "0124216a800ea52564eef033e9e8b5b7": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/org.kotlincrypto.hash/sha2-js/0.6.1/de1c4e682c45c1574be11b0118a78ac80fb85aa/sha2-js-0.6.1.klib"
+    },
+    "39eaac6214ba082fbb32d3ae1dfe50be": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/org.kotlincrypto.core/digest-js/0.6.1/753c133edf1954a4d3690d22fd109642c9a65594/digest-js-0.6.1.klib"
+    },
+    "637f47d527d7ca316536fbb46b05c941": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/org.kotlincrypto.core/core-js/0.6.1/5689514e331918a194ff9fb54a43e50859239b56/core-js-0.6.1.klib"
+    },
+    "51e959f874e07297ac008e1d05b26ec5": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/org.kotlincrypto/error-js/0.2.0/664e06b567097b409925adc0cde2321c46b9db99/error-js-0.2.0.klib"
+    },
+    "942b00f2979b6897109036cf468abd88": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/org.kotlincrypto.bitops/bits-js/0.1.2/78e91e57247e719a75fa061d9113008317389d43/bits-js-0.1.2.klib"
+    },
+    "e74f572ccad04067757fd7e8700d4ad1": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/org.kotlincrypto.bitops/endian-js/0.1.2/9a2f61d6d1d3c588372b88f788fa032c1149f70e/endian-js-0.1.2.klib"
+    },
+    "5ab1845824a3819003e58d7bde0eaf9d": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/org.kotlincrypto.macs/hmac-sha2-js/0.6.1/c6e461ef3c6d3095a7ecc1ac1cdd2b6949712be8/hmac-sha2-js-0.6.1.klib"
+    },
+    "3c2126364c579a78c405d0733abc796e": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/org.kotlincrypto.macs/hmac-js/0.6.1/3813b5405d73e019d292595de0d85fbd7a82b5d2/hmac-js-0.6.1.klib"
+    },
+    "49fcfea7abd9c6957fc286396dd322ee": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/org.kotlincrypto.core/mac-js/0.6.1/bd07179ddbfa6da0fd30831d908c7d46ec189382/mac-js-0.6.1.klib"
+    },
+    "6c87a9cbef08324bf77e714d5208fafb": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/app.softwork/kotlinx-uuid-core-js/0.1.4/65d7017e11e2cede442b84093422ad8da312c140/kotlinx-uuid-core-js-0.1.4.klib"
+    },
+    "89c4a69181c8fd291384ae7fc9778ff0": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/net.thauvin.erik.urlencoder/urlencoder-lib-js/1.6.0/477bc0f99c432092e4be357f06bf07111ef669c0/urlencoder-lib-js-1.6.0.klib"
+    },
+    "149a100dae14589a2d00720a1bdd6a16": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-client-js-js/3.1.2/2ad14aed781c4a73ed4dbb421966d408a0a06686/ktor-client-js-js-3.1.2.klib"
+    },
+    "83f2344a43e18e9f8c5a7862bb7116c5": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/io.github.optimumcode/json-schema-validator-js/0.4.0/ca2d4ee366ac5ebe7283344428c74d0fc8bd6a8d/json-schema-validator-js-0.4.0.klib"
+    },
+    "989f477e90c9eb489241d39a2dc83818": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/com.eygraber/uri-kmp-js/0.0.19/8f55f66202ffd4934cc95c2332f0895c23e4213c/uri-js-0.0.19.klib"
+    },
+    "c9636427cb8d99149ff79319ed2880c5": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/de.cketti.unicode/kotlin-codepoints-js/0.9.0/fa312bd722088c40b801d86f65235e3758029f2f/kotlin-codepoints-js.klib"
+    },
+    "fc673e5c19b32ac93a49355eec4db59e": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/io.github.optimumcode/karacteristics-js/0.0.3/7578903c1643517e382786b048801f94807f4576/karacteristics-js-0.0.3.klib"
+    },
+    "6b3c4f4d2e39ca0838680cf1a0fcea93": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/com.doist.x/normalize-js/1.1.1/61a3ea3acdd98b6888b122266ab6a0bcee6a6479/normalize-js-1.1.1.klib"
+    },
+    "f8e599af944c345963ed037ccfd99aa8": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/com.eygraber/jsonpathkt-kotlinx-js/3.0.2/8cae1adc208ffafea1151caed67b45f708952e85/jsonpath-kotlinx-js-3.0.2.klib"
+    },
+    "5c10eb2a6633b57d267bfb107f3e9d9f": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/com.eygraber/jsonpathkt-core-js/3.0.2/964c7840a42ce9760be4b9823ab9c1099720074e/jsonpath-core-js-3.0.2.klib"
+    },
+    "d5fc8af497e7ddc672aba5c42bccaf25": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-serialization-cbor-js/1.8.0/efa27adb71a31778c8f2e61ee5c33e73a5a2a0e5/kotlinx-serialization-cbor-js-1.8.0.klib"
+    },
+    "85387c32a37915cee2f59d0f2a258b60": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcpkix-lts8on/2.73.7/a782a4093cc8286b937bcaa7f1ec870bddf95553/bcpkix-lts8on-2.73.7.jar"
+    },
+    "d3c9bc4f46623e72b787f5345d556246": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcutil-lts8on/2.73.9/50e988b3a8819b2f522fe294799b475b32e74081/bcutil-lts8on-2.73.9.jar"
+    },
+    "34462b97d925d0ba0baf31316c0410fe": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcprov-lts8on/2.73.9/2d3e7e5e2e4eab6449ec6762ef66a9cb1337e284/bcprov-lts8on-2.73.9.jar"
+    },
+    "c7287e538f3694de55240fa06df42323": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/com.nimbusds/nimbus-jose-jwt/10.0.1/372e4d6fc73c96360d0e8967e3dc7bb3dd655fe3/nimbus-jose-jwt-10.0.1.jar"
+    },
+    "c60b6d4e64b9b5e7c6eaa1cba3dabd12": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/org.cose/cose-java/1.1.1-WALT-SNAPSHOT/49fc7527c949aeb021ca6ee8c4be963f660b26da/cose-java-1.1.1-WALT-SNAPSHOT.jar"
+    },
+    "353ad6cd2a96ff72ba280543104858cb": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/com.upokecenter/cbor/5.0.0-alpha2/5a0cced512c49070d49fe42524690745e6a153b2/cbor-5.0.0-alpha2.jar"
+    },
+    "8df608a5f86f5b6bf38dfa1a0ea305c9": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/com.github.peteroupc/numbers/1.8.2/f52a1cffea8e8c1926dba8377bd6fa8b6e9c12cd/numbers-1.8.2.jar"
+    },
+    "8b6a5b17d1dd42eef56ea1eb8bc4e25e": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/com.github.peteroupc/datautilities/1.1.0/3acf8c733aa2c38fe6bc8a639552ee70c915846d/datautilities-1.1.0.jar"
+    },
+    "8dded004607cdebdcbf8c3339c14e6b0": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.36/5a30490a6e14977d97d9c73c924c1f1b5311ea95/lombok-1.18.36.jar",
+      "target": "lombok/1.18.36"
+    },
+    "2198ee9da97e89d8ad7d76959e2a2219": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/2.1.0-alpha1/4e2525fc4327cc553c52e3937427c7cf2114735f/slf4j-api-2.1.0-alpha1.jar"
+    },
+    "9aee8fa26ab82632ec0cc3c37daaa869": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test-js/2.1.20/9d420aa80d3c52a414e770482bcd715dd2ebee71/kotlin-test-js-2.1.20.klib"
+    },
+    "c3977c19ecf5a10c3b1bcf554148e49a": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-test-js/1.10.1/7c4d0a053c35861ddb840593e4bcd8bca50cf1ab/kotlinx-coroutines-test-js-1.10.1.klib"
+    },
+    "5f460de879b1311463aa4ad821c02375": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-js/1.8.0/15c3b0e757e1e31196d82616f47e66df3ecd7d5b/kotlinx-coroutines-core-js-1.8.0.klib"
+    },
+    "ba8177ecda3981427862b37308d71b44": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/atomicfu-js/0.23.1/e19f377f0dc24137414f5f3e1be730f60aeb9539/atomicfu-js-0.23.1.klib"
+    },
+    "e9306c2451bbe8784372b11cb78554d0": {
+      "src": "/home/Zenjbar/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlinx-atomicfu-runtime/1.9.21/373f8846d435f6e7f77453cefbb97c548ae4781e/kotlinx-atomicfu-runtime-1.9.21.klib"
+    }
+  }
+}

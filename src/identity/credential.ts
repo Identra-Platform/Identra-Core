@@ -1,3 +1,0 @@
-interface VerifiableCredentialRepo {}
-
-class VerifiableCredential {}

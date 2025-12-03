@@ -1,0 +1,17 @@
+{
+  "name": "crypto",
+  "version": "1.0.0-SNAPSHOT",
+  "main": "kotlin/crypto.js",
+  "devDependencies": {
+    "typescript": "5.5.4"
+  },
+  "dependencies": {
+    "jose": "5.2.3",
+    "ws": "8.18.0",
+    "@js-joda/core": "3.2.0",
+    "format-util": "^1.0.5"
+  },
+  "peerDependencies": {},
+  "optionalDependencies": {},
+  "bundledDependencies": []
+}

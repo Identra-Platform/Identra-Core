@@ -1,0 +1,3172 @@
+(function (factory) {
+  if (typeof define === 'function' && define.amd)
+    define(['exports', './kotlin-kotlin-stdlib.js', './kotlinx-coroutines-core.js', './kotlinx-atomicfu.js', './ktor-ktor-http.js', './ktor-ktor-utils.js', './ktor-ktor-client-ktor-client-core.js', './ktor-ktor-io.js', './kotlinx-io-kotlinx-io-core.js'], factory);
+  else if (typeof exports === 'object')
+    factory(module.exports, require('./kotlin-kotlin-stdlib.js'), require('./kotlinx-coroutines-core.js'), require('./kotlinx-atomicfu.js'), require('./ktor-ktor-http.js'), require('./ktor-ktor-utils.js'), require('./ktor-ktor-client-ktor-client-core.js'), require('./ktor-ktor-io.js'), require('./kotlinx-io-kotlinx-io-core.js'));
+  else {
+    if (typeof globalThis['kotlin-kotlin-stdlib'] === 'undefined') {
+      throw new Error("Error loading module 'ktor-ktor-client-ktor-client-plugins-ktor-client-logging'. Its dependency 'kotlin-kotlin-stdlib' was not found. Please, check whether 'kotlin-kotlin-stdlib' is loaded prior to 'ktor-ktor-client-ktor-client-plugins-ktor-client-logging'.");
+    }
+    if (typeof globalThis['kotlinx-coroutines-core'] === 'undefined') {
+      throw new Error("Error loading module 'ktor-ktor-client-ktor-client-plugins-ktor-client-logging'. Its dependency 'kotlinx-coroutines-core' was not found. Please, check whether 'kotlinx-coroutines-core' is loaded prior to 'ktor-ktor-client-ktor-client-plugins-ktor-client-logging'.");
+    }
+    if (typeof globalThis['kotlinx-atomicfu'] === 'undefined') {
+      throw new Error("Error loading module 'ktor-ktor-client-ktor-client-plugins-ktor-client-logging'. Its dependency 'kotlinx-atomicfu' was not found. Please, check whether 'kotlinx-atomicfu' is loaded prior to 'ktor-ktor-client-ktor-client-plugins-ktor-client-logging'.");
+    }
+    if (typeof globalThis['ktor-ktor-http'] === 'undefined') {
+      throw new Error("Error loading module 'ktor-ktor-client-ktor-client-plugins-ktor-client-logging'. Its dependency 'ktor-ktor-http' was not found. Please, check whether 'ktor-ktor-http' is loaded prior to 'ktor-ktor-client-ktor-client-plugins-ktor-client-logging'.");
+    }
+    if (typeof globalThis['ktor-ktor-utils'] === 'undefined') {
+      throw new Error("Error loading module 'ktor-ktor-client-ktor-client-plugins-ktor-client-logging'. Its dependency 'ktor-ktor-utils' was not found. Please, check whether 'ktor-ktor-utils' is loaded prior to 'ktor-ktor-client-ktor-client-plugins-ktor-client-logging'.");
+    }
+    if (typeof globalThis['ktor-ktor-client-ktor-client-core'] === 'undefined') {
+      throw new Error("Error loading module 'ktor-ktor-client-ktor-client-plugins-ktor-client-logging'. Its dependency 'ktor-ktor-client-ktor-client-core' was not found. Please, check whether 'ktor-ktor-client-ktor-client-core' is loaded prior to 'ktor-ktor-client-ktor-client-plugins-ktor-client-logging'.");
+    }
+    if (typeof globalThis['ktor-ktor-io'] === 'undefined') {
+      throw new Error("Error loading module 'ktor-ktor-client-ktor-client-plugins-ktor-client-logging'. Its dependency 'ktor-ktor-io' was not found. Please, check whether 'ktor-ktor-io' is loaded prior to 'ktor-ktor-client-ktor-client-plugins-ktor-client-logging'.");
+    }
+    if (typeof globalThis['kotlinx-io-kotlinx-io-core'] === 'undefined') {
+      throw new Error("Error loading module 'ktor-ktor-client-ktor-client-plugins-ktor-client-logging'. Its dependency 'kotlinx-io-kotlinx-io-core' was not found. Please, check whether 'kotlinx-io-kotlinx-io-core' is loaded prior to 'ktor-ktor-client-ktor-client-plugins-ktor-client-logging'.");
+    }
+    globalThis['ktor-ktor-client-ktor-client-plugins-ktor-client-logging'] = factory(typeof globalThis['ktor-ktor-client-ktor-client-plugins-ktor-client-logging'] === 'undefined' ? {} : globalThis['ktor-ktor-client-ktor-client-plugins-ktor-client-logging'], globalThis['kotlin-kotlin-stdlib'], globalThis['kotlinx-coroutines-core'], globalThis['kotlinx-atomicfu'], globalThis['ktor-ktor-http'], globalThis['ktor-ktor-utils'], globalThis['ktor-ktor-client-ktor-client-core'], globalThis['ktor-ktor-io'], globalThis['kotlinx-io-kotlinx-io-core']);
+  }
+}(function (_, kotlin_kotlin, kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core, kotlin_org_jetbrains_kotlinx_atomicfu, kotlin_io_ktor_ktor_http, kotlin_io_ktor_ktor_utils, kotlin_io_ktor_ktor_client_core, kotlin_io_ktor_ktor_io, kotlin_org_jetbrains_kotlinx_kotlinx_io_core) {
+  'use strict';
+  //region block: imports
+  var CoroutineImpl = kotlin_kotlin.$_$.gb;
+  var get_COROUTINE_SUSPENDED = kotlin_kotlin.$_$.qa;
+  var THROW_CCE = kotlin_kotlin.$_$.ai;
+  var isCharSequence = kotlin_kotlin.$_$.nc;
+  var trim = kotlin_kotlin.$_$.ch;
+  var toString = kotlin_kotlin.$_$.kd;
+  var Unit_instance = kotlin_kotlin.$_$.a6;
+  var protoOf = kotlin_kotlin.$_$.gd;
+  var initMetadataForCoroutine = kotlin_kotlin.$_$.ec;
+  var charSequenceLength = kotlin_kotlin.$_$.sb;
+  var StringBuilder_init_$Create$ = kotlin_kotlin.$_$.n1;
+  var Job = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.z;
+  var atomic$boolean$1 = kotlin_org_jetbrains_kotlinx_atomicfu.$_$.c;
+  var _Char___init__impl__6a9atx = kotlin_kotlin.$_$.c3;
+  var initMetadataForClass = kotlin_kotlin.$_$.cc;
+  var VOID = kotlin_kotlin.$_$.j;
+  var Enum = kotlin_kotlin.$_$.oh;
+  var ReadChannelContent = kotlin_io_ktor_ktor_http.$_$.r;
+  var initMetadataForCompanion = kotlin_kotlin.$_$.dc;
+  var println = kotlin_kotlin.$_$.jb;
+  var ArrayList_init_$Create$ = kotlin_kotlin.$_$.t;
+  var OutgoingContent = kotlin_io_ktor_ktor_http.$_$.t;
+  var IllegalStateException_init_$Create$ = kotlin_kotlin.$_$.g2;
+  var getKClassFromExpression = kotlin_kotlin.$_$.f;
+  var Long = kotlin_kotlin.$_$.th;
+  var ProtocolUpgrade = kotlin_io_ktor_ktor_http.$_$.q;
+  var NoContent = kotlin_io_ktor_ktor_http.$_$.p;
+  var ContentWrapper = kotlin_io_ktor_ktor_http.$_$.o;
+  var toLong = kotlin_kotlin.$_$.id;
+  var ByteArrayContent = kotlin_io_ktor_ktor_http.$_$.n;
+  var PipelineContext = kotlin_io_ktor_ktor_utils.$_$.h;
+  var initMetadataForLambda = kotlin_kotlin.$_$.hc;
+  var Phases_getInstance = kotlin_io_ktor_ktor_client_core.$_$.b;
+  var isSuspendFunction = kotlin_kotlin.$_$.vc;
+  var initMetadataForObject = kotlin_kotlin.$_$.ic;
+  var HttpResponse = kotlin_io_ktor_ktor_client_core.$_$.w;
+  var PipelinePhase = kotlin_io_ktor_ktor_utils.$_$.i;
+  var Phases_getInstance_0 = kotlin_io_ktor_ktor_client_core.$_$.c;
+  var HttpResponseContainer = kotlin_io_ktor_ktor_client_core.$_$.v;
+  var Phases_getInstance_1 = kotlin_io_ktor_ktor_client_core.$_$.d;
+  var get_ResponseObserver = kotlin_io_ktor_ktor_client_core.$_$.j;
+  var Collection = kotlin_kotlin.$_$.c6;
+  var isInterface = kotlin_kotlin.$_$.rc;
+  var toString_0 = kotlin_kotlin.$_$.fj;
+  var charset = kotlin_io_ktor_ktor_http.$_$.g1;
+  var Charsets_getInstance = kotlin_io_ktor_ktor_io.$_$.o;
+  var ByteChannel = kotlin_io_ktor_ktor_io.$_$.m1;
+  var GlobalScope_instance = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.g;
+  var Dispatchers_getInstance = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.f;
+  var launch = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.h1;
+  var Url = kotlin_io_ktor_ktor_http.$_$.c1;
+  var HttpHeaders_getInstance = kotlin_io_ktor_ktor_http.$_$.g;
+  var HttpRequestBuilder = kotlin_io_ktor_ktor_client_core.$_$.o;
+  var joinToString = kotlin_kotlin.$_$.o8;
+  var equals = kotlin_kotlin.$_$.wb;
+  var HttpClientCall = kotlin_io_ktor_ktor_client_core.$_$.f;
+  var contentType = kotlin_io_ktor_ktor_http.$_$.k1;
+  var CoroutineScope = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.y;
+  var writeFully = kotlin_io_ktor_ktor_io.$_$.l;
+  var copyTo = kotlin_io_ktor_ktor_io.$_$.b;
+  var GZipEncoder_getInstance = kotlin_io_ktor_ktor_utils.$_$.a;
+  var readRemaining = kotlin_io_ktor_ktor_io.$_$.f;
+  var readText = kotlin_io_ktor_ktor_io.$_$.c1;
+  var Triple = kotlin_kotlin.$_$.ci;
+  var readAvailable = kotlin_io_ktor_ktor_io.$_$.d;
+  var Buffer = kotlin_org_jetbrains_kotlinx_kotlinx_io_core.$_$.f;
+  var writeFully_0 = kotlin_io_ktor_ktor_io.$_$.g1;
+  var decode = kotlin_io_ktor_ktor_io.$_$.s;
+  var charSequenceGet = kotlin_kotlin.$_$.rb;
+  var async = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.b1;
+  var noWhenBranchMatchedException = kotlin_kotlin.$_$.aj;
+  var split = kotlin_io_ktor_ktor_utils.$_$.e1;
+  var WriteChannelContent = kotlin_io_ktor_ktor_http.$_$.s;
+  var ByteReadChannel = kotlin_io_ktor_ktor_io.$_$.n1;
+  var URLBuilder = kotlin_io_ktor_ktor_http.$_$.a1;
+  var takeFrom = kotlin_io_ktor_ktor_http.$_$.r1;
+  var HeadersBuilder = kotlin_io_ktor_ktor_http.$_$.w;
+  var Companion_getInstance = kotlin_io_ktor_ktor_http.$_$.h;
+  var EmptyContent = kotlin_io_ktor_ktor_client_core.$_$.z;
+  var appendIfNameAbsent = kotlin_io_ktor_ktor_utils.$_$.y;
+  var appendAll = kotlin_io_ktor_ktor_utils.$_$.x;
+  var toLongOrNull = kotlin_kotlin.$_$.pg;
+  var contentLength = kotlin_io_ktor_ktor_http.$_$.h1;
+  var get_request = kotlin_io_ktor_ktor_client_core.$_$.y;
+  var Text_getInstance = kotlin_io_ktor_ktor_http.$_$.e;
+  var get_isSaved = kotlin_io_ktor_ktor_client_core.$_$.n;
+  var wrapWithContent = kotlin_io_ktor_ktor_client_core.$_$.k;
+  var getKClass = kotlin_kotlin.$_$.g;
+  var arrayOf = kotlin_kotlin.$_$.oi;
+  var createKType = kotlin_kotlin.$_$.d;
+  var TypeInfo = kotlin_io_ktor_ktor_utils.$_$.k;
+  var AttributeKey = kotlin_io_ktor_ktor_utils.$_$.m;
+  var Unit = kotlin_kotlin.$_$.li;
+  var createClientPlugin = kotlin_io_ktor_ktor_client_core.$_$.i;
+  var toList = kotlin_kotlin.$_$.aa;
+  var sortedWith = kotlin_kotlin.$_$.t9;
+  var FunctionAdapter = kotlin_kotlin.$_$.kb;
+  var Comparator = kotlin_kotlin.$_$.lh;
+  var hashCode = kotlin_kotlin.$_$.bc;
+  var compareValues = kotlin_kotlin.$_$.oa;
+  var writer = kotlin_io_ktor_ktor_io.$_$.x1;
+  var WriterScope = kotlin_io_ktor_ktor_io.$_$.p1;
+  var copyToBoth = kotlin_io_ktor_ktor_utils.$_$.z;
+  var get = kotlin_kotlin.$_$.cb;
+  var fold = kotlin_kotlin.$_$.bb;
+  var minusKey = kotlin_kotlin.$_$.db;
+  var plus = kotlin_kotlin.$_$.fb;
+  var Element = kotlin_kotlin.$_$.eb;
+  //endregion
+  //region block: pre-declaration
+  initMetadataForCoroutine($logResponseExceptionCOROUTINE$0, CoroutineImpl);
+  initMetadataForCoroutine($logResponseBodyCOROUTINE$1, CoroutineImpl);
+  initMetadataForCoroutine($closeResponseLogCOROUTINE$2, CoroutineImpl);
+  initMetadataForClass(HttpClientCallLogger, 'HttpClientCallLogger', VOID, VOID, VOID, [1, 0]);
+  initMetadataForClass(LogLevel, 'LogLevel', VOID, Enum);
+  initMetadataForClass(LoggedContent, 'LoggedContent', VOID, ReadChannelContent);
+  initMetadataForCompanion(Companion);
+  initMetadataForClass(SimpleLogger, 'SimpleLogger', SimpleLogger);
+  initMetadataForClass(LoggingConfig, 'LoggingConfig', LoggingConfig);
+  initMetadataForClass(LoggingFormat, 'LoggingFormat', VOID, Enum);
+  initMetadataForClass(Context, 'Context', VOID, VOID, VOID, [1, 0]);
+  initMetadataForLambda(SendHook$install$slambda, CoroutineImpl, VOID, [2]);
+  initMetadataForObject(SendHook, 'SendHook');
+  initMetadataForClass(Context_0, 'Context', VOID, VOID, VOID, [1]);
+  initMetadataForLambda(ResponseAfterEncodingHook$install$slambda, CoroutineImpl, VOID, [2]);
+  initMetadataForObject(ResponseAfterEncodingHook, 'ResponseAfterEncodingHook');
+  initMetadataForClass(Context_1, 'Context', VOID, VOID, VOID, [0]);
+  initMetadataForLambda(ResponseHook$install$slambda, CoroutineImpl, VOID, [2]);
+  initMetadataForObject(ResponseHook, 'ResponseHook');
+  initMetadataForClass(Context_2, 'Context', VOID, VOID, VOID, [0]);
+  initMetadataForLambda(ReceiveHook$install$slambda, CoroutineImpl, VOID, [2]);
+  initMetadataForObject(ReceiveHook, 'ReceiveHook');
+  initMetadataForLambda(Logging$lambda$slambda, CoroutineImpl, VOID, [2]);
+  initMetadataForLambda(Logging$lambda$slambda_1, CoroutineImpl, VOID, [2]);
+  initMetadataForLambda(Logging$lambda$slambda_3, CoroutineImpl, VOID, [2]);
+  initMetadataForLambda(Logging$lambda$slambda_5, CoroutineImpl, VOID, [2]);
+  initMetadataForLambda(Logging$lambda$slambda_7, CoroutineImpl, VOID, [1]);
+  initMetadataForLambda(Logging$lambda$detectIfBinary$slambda, CoroutineImpl, VOID, [1]);
+  initMetadataForLambda(Logging$lambda$logOutgoingContent$slambda, CoroutineImpl, VOID, [1]);
+  initMetadataForLambda(Logging$lambda$logRequestBody$slambda, CoroutineImpl, VOID, [1]);
+  initMetadataForCoroutine($invoke$detectIfBinaryCOROUTINE$3, CoroutineImpl);
+  initMetadataForCoroutine($invoke$logRequestBodyCOROUTINE$4, CoroutineImpl);
+  initMetadataForCoroutine($invoke$logOutgoingContentCOROUTINE$5, CoroutineImpl);
+  initMetadataForCoroutine($invoke$logRequestOkHttpFormatCOROUTINE$6, CoroutineImpl);
+  initMetadataForCoroutine($invoke$logResponseBodyCOROUTINE$7, CoroutineImpl);
+  initMetadataForCoroutine($invoke$logResponseOkHttpFormatCOROUTINE$8, CoroutineImpl);
+  initMetadataForClass(sam$kotlin_Comparator$0, 'sam$kotlin_Comparator$0', VOID, VOID, [Comparator, FunctionAdapter]);
+  initMetadataForCoroutine($logResponseBodyCOROUTINE$10, CoroutineImpl);
+  initMetadataForLambda(toReadChannel$slambda, CoroutineImpl, VOID, [1]);
+  initMetadataForCoroutine($observeCOROUTINE$11, CoroutineImpl);
+  initMetadataForObject(MDCContextKey, 'MDCContextKey');
+  initMetadataForObject(MDCContextElement, 'MDCContextElement', VOID, VOID, [Element]);
+  //endregion
+  function $logResponseExceptionCOROUTINE$0(_this__u8e3s4, message, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this.n5c_1 = _this__u8e3s4;
+    this.o5c_1 = message;
+  }
+  protoOf($logResponseExceptionCOROUTINE$0).ea = function () {
+    var suspendResult = this.o9_1;
+    $sm: do
+      try {
+        var tmp = this.m9_1;
+        switch (tmp) {
+          case 0:
+            this.n9_1 = 2;
+            this.m9_1 = 1;
+            suspendResult = this.n5c_1.s5c_1.b10(this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            var this_0 = this.o5c_1;
+            this.n5c_1.p5c_1.w5c(toString(trim(isCharSequence(this_0) ? this_0 : THROW_CCE())));
+            return Unit_instance;
+          case 2:
+            throw this.p9_1;
+        }
+      } catch ($p) {
+        var e = $p;
+        if (this.n9_1 === 2) {
+          throw e;
+        } else {
+          this.m9_1 = this.n9_1;
+          this.p9_1 = e;
+        }
+      }
+     while (true);
+  };
+  function $logResponseBodyCOROUTINE$1(_this__u8e3s4, message, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this.f5d_1 = _this__u8e3s4;
+    this.g5d_1 = message;
+  }
+  protoOf($logResponseBodyCOROUTINE$1).ea = function () {
+    var suspendResult = this.o9_1;
+    $sm: do
+      try {
+        var tmp = this.m9_1;
+        switch (tmp) {
+          case 0:
+            this.n9_1 = 2;
+            this.m9_1 = 1;
+            suspendResult = this.f5d_1.t5c_1.b10(this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            this.f5d_1.r5c_1.x8(this.g5d_1);
+            return Unit_instance;
+          case 2:
+            throw this.p9_1;
+        }
+      } catch ($p) {
+        var e = $p;
+        if (this.n9_1 === 2) {
+          throw e;
+        } else {
+          this.m9_1 = this.n9_1;
+          this.p9_1 = e;
+        }
+      }
+     while (true);
+  };
+  function $closeResponseLogCOROUTINE$2(_this__u8e3s4, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this.p5d_1 = _this__u8e3s4;
+  }
+  protoOf($closeResponseLogCOROUTINE$2).ea = function () {
+    var suspendResult = this.o9_1;
+    $sm: do
+      try {
+        var tmp = this.m9_1;
+        switch (tmp) {
+          case 0:
+            this.n9_1 = 2;
+            if (!this.p5d_1.v5c_1.atomicfu$compareAndSet(false, true))
+              return Unit_instance;
+            this.m9_1 = 1;
+            suspendResult = this.p5d_1.s5c_1.b10(this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            var message = toString(trim(this.p5d_1.r5c_1));
+            if (charSequenceLength(message) > 0) {
+              this.p5d_1.p5c_1.w5c(message);
+            }
+
+            return Unit_instance;
+          case 2:
+            throw this.p9_1;
+        }
+      } catch ($p) {
+        var e = $p;
+        if (this.n9_1 === 2) {
+          throw e;
+        } else {
+          this.m9_1 = this.n9_1;
+          this.p9_1 = e;
+        }
+      }
+     while (true);
+  };
+  function HttpClientCallLogger(logger) {
+    this.p5c_1 = logger;
+    this.q5c_1 = StringBuilder_init_$Create$();
+    this.r5c_1 = StringBuilder_init_$Create$();
+    this.s5c_1 = Job();
+    this.t5c_1 = Job();
+    this.u5c_1 = atomic$boolean$1(false);
+    this.v5c_1 = atomic$boolean$1(false);
+  }
+  protoOf(HttpClientCallLogger).q5d = function (message) {
+    var tmp1 = this.q5c_1;
+    // Inline function 'kotlin.text.trim' call
+    // Inline function 'kotlin.text.appendLine' call
+    var value = toString(trim(isCharSequence(message) ? message : THROW_CCE()));
+    // Inline function 'kotlin.text.appendLine' call
+    tmp1.x8(value).y8(_Char___init__impl__6a9atx(10));
+  };
+  protoOf(HttpClientCallLogger).r5d = function (message) {
+    var tmp1 = this.r5c_1;
+    // Inline function 'kotlin.text.trim' call
+    // Inline function 'kotlin.text.appendLine' call
+    var value = toString(trim(isCharSequence(message) ? message : THROW_CCE()));
+    // Inline function 'kotlin.text.appendLine' call
+    tmp1.x8(value).y8(_Char___init__impl__6a9atx(10));
+    this.t5c_1.a10();
+  };
+  protoOf(HttpClientCallLogger).s5d = function (message, $completion) {
+    var tmp = new $logResponseExceptionCOROUTINE$0(this, message, $completion);
+    tmp.o9_1 = Unit_instance;
+    tmp.p9_1 = null;
+    return tmp.ea();
+  };
+  protoOf(HttpClientCallLogger).t5d = function (message, $completion) {
+    var tmp = new $logResponseBodyCOROUTINE$1(this, message, $completion);
+    tmp.o9_1 = Unit_instance;
+    tmp.p9_1 = null;
+    return tmp.ea();
+  };
+  protoOf(HttpClientCallLogger).u5d = function () {
+    if (!this.u5c_1.atomicfu$compareAndSet(false, true))
+      return Unit_instance;
+    try {
+      var message = toString(trim(this.q5c_1));
+      // Inline function 'kotlin.text.isNotEmpty' call
+      if (charSequenceLength(message) > 0) {
+        this.p5c_1.w5c(message);
+      }
+    }finally {
+      this.s5c_1.a10();
+    }
+  };
+  protoOf(HttpClientCallLogger).v5d = function ($completion) {
+    var tmp = new $closeResponseLogCOROUTINE$2(this, $completion);
+    tmp.o9_1 = Unit_instance;
+    tmp.p9_1 = null;
+    return tmp.ea();
+  };
+  var LogLevel_ALL_instance;
+  var LogLevel_HEADERS_instance;
+  var LogLevel_BODY_instance;
+  var LogLevel_INFO_instance;
+  var LogLevel_NONE_instance;
+  var LogLevel_entriesInitialized;
+  function LogLevel_initEntries() {
+    if (LogLevel_entriesInitialized)
+      return Unit_instance;
+    LogLevel_entriesInitialized = true;
+    LogLevel_ALL_instance = new LogLevel('ALL', 0, true, true, true);
+    LogLevel_HEADERS_instance = new LogLevel('HEADERS', 1, true, true, false);
+    LogLevel_BODY_instance = new LogLevel('BODY', 2, true, false, true);
+    LogLevel_INFO_instance = new LogLevel('INFO', 3, true, false, false);
+    LogLevel_NONE_instance = new LogLevel('NONE', 4, false, false, false);
+  }
+  function LogLevel(name, ordinal, info, headers, body) {
+    Enum.call(this, name, ordinal);
+    this.y5d_1 = info;
+    this.z5d_1 = headers;
+    this.a5e_1 = body;
+  }
+  function LogLevel_ALL_getInstance() {
+    LogLevel_initEntries();
+    return LogLevel_ALL_instance;
+  }
+  function LogLevel_HEADERS_getInstance() {
+    LogLevel_initEntries();
+    return LogLevel_HEADERS_instance;
+  }
+  function LogLevel_BODY_getInstance() {
+    LogLevel_initEntries();
+    return LogLevel_BODY_instance;
+  }
+  function LogLevel_INFO_getInstance() {
+    LogLevel_initEntries();
+    return LogLevel_INFO_instance;
+  }
+  function LogLevel_NONE_getInstance() {
+    LogLevel_initEntries();
+    return LogLevel_NONE_instance;
+  }
+  function LoggedContent(originalContent, channel) {
+    ReadChannelContent.call(this);
+    this.c5e_1 = originalContent;
+    this.d5e_1 = channel;
+    this.e5e_1 = this.c5e_1.n35();
+    this.f5e_1 = this.c5e_1.p35();
+    this.g5e_1 = this.c5e_1.o35();
+    this.h5e_1 = this.c5e_1.a30();
+  }
+  protoOf(LoggedContent).n35 = function () {
+    return this.e5e_1;
+  };
+  protoOf(LoggedContent).p35 = function () {
+    return this.f5e_1;
+  };
+  protoOf(LoggedContent).o35 = function () {
+    return this.g5e_1;
+  };
+  protoOf(LoggedContent).a30 = function () {
+    return this.h5e_1;
+  };
+  protoOf(LoggedContent).t35 = function () {
+    return this.d5e_1;
+  };
+  function Companion() {
+  }
+  var Companion_instance;
+  function Companion_getInstance_0() {
+    return Companion_instance;
+  }
+  function get_SIMPLE(_this__u8e3s4) {
+    return new SimpleLogger();
+  }
+  function SimpleLogger() {
+  }
+  protoOf(SimpleLogger).w5c = function (message) {
+    println('HttpClient: ' + message);
+  };
+  function get_ClientCallLogger() {
+    _init_properties_Logging_kt__66pui5();
+    return ClientCallLogger;
+  }
+  var ClientCallLogger;
+  function get_DisableLogging() {
+    _init_properties_Logging_kt__66pui5();
+    return DisableLogging;
+  }
+  var DisableLogging;
+  function get_Logging() {
+    _init_properties_Logging_kt__66pui5();
+    return Logging;
+  }
+  var Logging;
+  function LoggingConfig() {
+    var tmp = this;
+    // Inline function 'kotlin.collections.mutableListOf' call
+    tmp.i5e_1 = ArrayList_init_$Create$();
+    var tmp_0 = this;
+    // Inline function 'kotlin.collections.mutableListOf' call
+    tmp_0.j5e_1 = ArrayList_init_$Create$();
+    this.k5e_1 = null;
+    this.l5e_1 = LoggingFormat_Default_getInstance();
+    this.m5e_1 = LogLevel_HEADERS_getInstance();
+  }
+  protoOf(LoggingConfig).n5e = function (value) {
+    this.k5e_1 = value;
+  };
+  protoOf(LoggingConfig).o5e = function () {
+    var tmp0_elvis_lhs = this.k5e_1;
+    return tmp0_elvis_lhs == null ? get_DEFAULT(Companion_instance) : tmp0_elvis_lhs;
+  };
+  var LoggingFormat_Default_instance;
+  var LoggingFormat_OkHttp_instance;
+  var LoggingFormat_entriesInitialized;
+  function LoggingFormat_initEntries() {
+    if (LoggingFormat_entriesInitialized)
+      return Unit_instance;
+    LoggingFormat_entriesInitialized = true;
+    LoggingFormat_Default_instance = new LoggingFormat('Default', 0);
+    LoggingFormat_OkHttp_instance = new LoggingFormat('OkHttp', 1);
+  }
+  function LoggingFormat(name, ordinal) {
+    Enum.call(this, name, ordinal);
+  }
+  function pathQuery(_this__u8e3s4) {
+    _init_properties_Logging_kt__66pui5();
+    // Inline function 'kotlin.text.buildString' call
+    // Inline function 'kotlin.apply' call
+    var this_0 = StringBuilder_init_$Create$();
+    // Inline function 'kotlin.text.isEmpty' call
+    var this_1 = _this__u8e3s4.a35();
+    if (charSequenceLength(this_1) === 0) {
+      this_0.x8('/');
+    } else {
+      this_0.x8(_this__u8e3s4.a35());
+    }
+    // Inline function 'kotlin.text.isEmpty' call
+    var this_2 = _this__u8e3s4.d35();
+    if (!(charSequenceLength(this_2) === 0)) {
+      this_0.x8('?');
+      this_0.x8(_this__u8e3s4.d35());
+    }
+    return this_0.toString();
+  }
+  function computeRequestBodySize(content) {
+    _init_properties_Logging_kt__66pui5();
+    // Inline function 'kotlin.check' call
+    if (!(content instanceof OutgoingContent)) {
+      throw IllegalStateException_init_$Create$('Check failed.');
+    }
+    var tmp;
+    if (content instanceof ByteArrayContent) {
+      tmp = toLong(content.q35().length);
+    } else {
+      if (content instanceof ContentWrapper) {
+        tmp = computeRequestBodySize(content.z35());
+      } else {
+        if (content instanceof NoContent) {
+          tmp = new Long(0, 0);
+        } else {
+          if (content instanceof ProtocolUpgrade) {
+            tmp = new Long(0, 0);
+          } else {
+            var message = 'Unable to calculate the size for type ' + getKClassFromExpression(content).gc();
+            throw IllegalStateException_init_$Create$(toString(message));
+          }
+        }
+      }
+    }
+    return tmp;
+  }
+  function Context(context) {
+    this.p5e_1 = context;
+  }
+  protoOf(Context).q5e = function (content, $completion) {
+    return this.p5e_1.q2r(content, $completion);
+  };
+  protoOf(Context).r5e = function ($completion) {
+    return this.p5e_1.r2r($completion);
+  };
+  function SendHook$install$slambda($handler, resultContinuation) {
+    this.a5f_1 = $handler;
+    CoroutineImpl.call(this, resultContinuation);
+  }
+  protoOf(SendHook$install$slambda).a3h = function ($this$intercept, it, $completion) {
+    var tmp = this.b3h($this$intercept, it, $completion);
+    tmp.o9_1 = Unit_instance;
+    tmp.p9_1 = null;
+    return tmp.ea();
+  };
+  protoOf(SendHook$install$slambda).va = function (p1, p2, $completion) {
+    var tmp = p1 instanceof PipelineContext ? p1 : THROW_CCE();
+    return this.a3h(tmp, !(p2 == null) ? p2 : THROW_CCE(), $completion);
+  };
+  protoOf(SendHook$install$slambda).ea = function () {
+    var suspendResult = this.o9_1;
+    $sm: do
+      try {
+        var tmp = this.m9_1;
+        switch (tmp) {
+          case 0:
+            this.n9_1 = 2;
+            this.m9_1 = 1;
+            suspendResult = this.a5f_1(new Context(this.b5f_1), this.b5f_1.m2s_1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            return Unit_instance;
+          case 2:
+            throw this.p9_1;
+        }
+      } catch ($p) {
+        var e = $p;
+        if (this.n9_1 === 2) {
+          throw e;
+        } else {
+          this.m9_1 = this.n9_1;
+          this.p9_1 = e;
+        }
+      }
+     while (true);
+  };
+  protoOf(SendHook$install$slambda).b3h = function ($this$intercept, it, completion) {
+    var i = new SendHook$install$slambda(this.a5f_1, completion);
+    i.b5f_1 = $this$intercept;
+    i.c5f_1 = it;
+    return i;
+  };
+  function SendHook$install$slambda_0($handler, resultContinuation) {
+    var i = new SendHook$install$slambda($handler, resultContinuation);
+    var l = function ($this$intercept, it, $completion) {
+      return i.a3h($this$intercept, it, $completion);
+    };
+    l.$arity = 2;
+    return l;
+  }
+  function SendHook() {
+  }
+  protoOf(SendHook).d5f = function (client, handler) {
+    var tmp = Phases_getInstance().r3i_1;
+    client.i3g_1.q2s(tmp, SendHook$install$slambda_0(handler, null));
+  };
+  protoOf(SendHook).v3p = function (client, handler) {
+    return this.d5f(client, (!(handler == null) ? isSuspendFunction(handler, 2) : false) ? handler : THROW_CCE());
+  };
+  var SendHook_instance;
+  function SendHook_getInstance() {
+    return SendHook_instance;
+  }
+  function Context_0(context) {
+    this.e5f_1 = context;
+  }
+  protoOf(Context_0).q4d = function (response, $completion) {
+    return this.e5f_1.q2r(response, $completion);
+  };
+  function ResponseAfterEncodingHook$install$slambda($handler, resultContinuation) {
+    this.n5f_1 = $handler;
+    CoroutineImpl.call(this, resultContinuation);
+  }
+  protoOf(ResponseAfterEncodingHook$install$slambda).i3q = function ($this$intercept, it, $completion) {
+    var tmp = this.j3q($this$intercept, it, $completion);
+    tmp.o9_1 = Unit_instance;
+    tmp.p9_1 = null;
+    return tmp.ea();
+  };
+  protoOf(ResponseAfterEncodingHook$install$slambda).va = function (p1, p2, $completion) {
+    var tmp = p1 instanceof PipelineContext ? p1 : THROW_CCE();
+    return this.i3q(tmp, p2 instanceof HttpResponse ? p2 : THROW_CCE(), $completion);
+  };
+  protoOf(ResponseAfterEncodingHook$install$slambda).ea = function () {
+    var suspendResult = this.o9_1;
+    $sm: do
+      try {
+        var tmp = this.m9_1;
+        switch (tmp) {
+          case 0:
+            this.n9_1 = 2;
+            this.m9_1 = 1;
+            suspendResult = this.n5f_1(new Context_0(this.o5f_1), this.o5f_1.p2r(), this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            return Unit_instance;
+          case 2:
+            throw this.p9_1;
+        }
+      } catch ($p) {
+        var e = $p;
+        if (this.n9_1 === 2) {
+          throw e;
+        } else {
+          this.m9_1 = this.n9_1;
+          this.p9_1 = e;
+        }
+      }
+     while (true);
+  };
+  protoOf(ResponseAfterEncodingHook$install$slambda).j3q = function ($this$intercept, it, completion) {
+    var i = new ResponseAfterEncodingHook$install$slambda(this.n5f_1, completion);
+    i.o5f_1 = $this$intercept;
+    i.p5f_1 = it;
+    return i;
+  };
+  function ResponseAfterEncodingHook$install$slambda_0($handler, resultContinuation) {
+    var i = new ResponseAfterEncodingHook$install$slambda($handler, resultContinuation);
+    var l = function ($this$intercept, it, $completion) {
+      return i.i3q($this$intercept, it, $completion);
+    };
+    l.$arity = 2;
+    return l;
+  }
+  function ResponseAfterEncodingHook() {
+  }
+  protoOf(ResponseAfterEncodingHook).q5f = function (client, handler) {
+    var afterState = new PipelinePhase('AfterState');
+    client.j3g_1.n2s(Phases_getInstance_0().m3q_1, afterState);
+    client.j3g_1.q2s(afterState, ResponseAfterEncodingHook$install$slambda_0(handler, null));
+  };
+  protoOf(ResponseAfterEncodingHook).v3p = function (client, handler) {
+    return this.q5f(client, (!(handler == null) ? isSuspendFunction(handler, 2) : false) ? handler : THROW_CCE());
+  };
+  var ResponseAfterEncodingHook_instance;
+  function ResponseAfterEncodingHook_getInstance() {
+    return ResponseAfterEncodingHook_instance;
+  }
+  function Context_1(context) {
+    this.r5f_1 = context;
+  }
+  protoOf(Context_1).s5f = function ($completion) {
+    return this.r5f_1.r2r($completion);
+  };
+  function ResponseHook$install$slambda($handler, resultContinuation) {
+    this.b5g_1 = $handler;
+    CoroutineImpl.call(this, resultContinuation);
+  }
+  protoOf(ResponseHook$install$slambda).i3q = function ($this$intercept, it, $completion) {
+    var tmp = this.j3q($this$intercept, it, $completion);
+    tmp.o9_1 = Unit_instance;
+    tmp.p9_1 = null;
+    return tmp.ea();
+  };
+  protoOf(ResponseHook$install$slambda).va = function (p1, p2, $completion) {
+    var tmp = p1 instanceof PipelineContext ? p1 : THROW_CCE();
+    return this.i3q(tmp, p2 instanceof HttpResponse ? p2 : THROW_CCE(), $completion);
+  };
+  protoOf(ResponseHook$install$slambda).ea = function () {
+    var suspendResult = this.o9_1;
+    $sm: do
+      try {
+        var tmp = this.m9_1;
+        switch (tmp) {
+          case 0:
+            this.n9_1 = 2;
+            this.m9_1 = 1;
+            suspendResult = this.b5g_1(new Context_1(this.c5g_1), this.c5g_1.p2r(), this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            return Unit_instance;
+          case 2:
+            throw this.p9_1;
+        }
+      } catch ($p) {
+        var e = $p;
+        if (this.n9_1 === 2) {
+          throw e;
+        } else {
+          this.m9_1 = this.n9_1;
+          this.p9_1 = e;
+        }
+      }
+     while (true);
+  };
+  protoOf(ResponseHook$install$slambda).j3q = function ($this$intercept, it, completion) {
+    var i = new ResponseHook$install$slambda(this.b5g_1, completion);
+    i.c5g_1 = $this$intercept;
+    i.d5g_1 = it;
+    return i;
+  };
+  function ResponseHook$install$slambda_0($handler, resultContinuation) {
+    var i = new ResponseHook$install$slambda($handler, resultContinuation);
+    var l = function ($this$intercept, it, $completion) {
+      return i.i3q($this$intercept, it, $completion);
+    };
+    l.$arity = 2;
+    return l;
+  }
+  function ResponseHook() {
+  }
+  protoOf(ResponseHook).e5g = function (client, handler) {
+    var tmp = Phases_getInstance_0().m3q_1;
+    client.j3g_1.q2s(tmp, ResponseHook$install$slambda_0(handler, null));
+  };
+  protoOf(ResponseHook).v3p = function (client, handler) {
+    return this.e5g(client, (!(handler == null) ? isSuspendFunction(handler, 2) : false) ? handler : THROW_CCE());
+  };
+  var ResponseHook_instance;
+  function ResponseHook_getInstance() {
+    return ResponseHook_instance;
+  }
+  function Context_2(context) {
+    this.f5g_1 = context;
+  }
+  protoOf(Context_2).g5g = function ($completion) {
+    return this.f5g_1.r2r($completion);
+  };
+  function ReceiveHook$install$slambda($handler, resultContinuation) {
+    this.p5g_1 = $handler;
+    CoroutineImpl.call(this, resultContinuation);
+  }
+  protoOf(ReceiveHook$install$slambda).v3h = function ($this$intercept, it, $completion) {
+    var tmp = this.w3h($this$intercept, it, $completion);
+    tmp.o9_1 = Unit_instance;
+    tmp.p9_1 = null;
+    return tmp.ea();
+  };
+  protoOf(ReceiveHook$install$slambda).va = function (p1, p2, $completion) {
+    var tmp = p1 instanceof PipelineContext ? p1 : THROW_CCE();
+    return this.v3h(tmp, p2 instanceof HttpResponseContainer ? p2 : THROW_CCE(), $completion);
+  };
+  protoOf(ReceiveHook$install$slambda).ea = function () {
+    var suspendResult = this.o9_1;
+    $sm: do
+      try {
+        var tmp = this.m9_1;
+        switch (tmp) {
+          case 0:
+            this.n9_1 = 2;
+            this.m9_1 = 1;
+            suspendResult = this.p5g_1(new Context_2(this.q5g_1), this.q5g_1.m2s_1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            return Unit_instance;
+          case 2:
+            throw this.p9_1;
+        }
+      } catch ($p) {
+        var e = $p;
+        if (this.n9_1 === 2) {
+          throw e;
+        } else {
+          this.m9_1 = this.n9_1;
+          this.p9_1 = e;
+        }
+      }
+     while (true);
+  };
+  protoOf(ReceiveHook$install$slambda).w3h = function ($this$intercept, it, completion) {
+    var i = new ReceiveHook$install$slambda(this.p5g_1, completion);
+    i.q5g_1 = $this$intercept;
+    i.r5g_1 = it;
+    return i;
+  };
+  function ReceiveHook$install$slambda_0($handler, resultContinuation) {
+    var i = new ReceiveHook$install$slambda($handler, resultContinuation);
+    var l = function ($this$intercept, it, $completion) {
+      return i.v3h($this$intercept, it, $completion);
+    };
+    l.$arity = 2;
+    return l;
+  }
+  function ReceiveHook() {
+  }
+  protoOf(ReceiveHook).s5g = function (client, handler) {
+    var tmp = Phases_getInstance_1().f3j_1;
+    client.h3g_1.q2s(tmp, ReceiveHook$install$slambda_0(handler, null));
+  };
+  protoOf(ReceiveHook).v3p = function (client, handler) {
+    return this.s5g(client, (!(handler == null) ? isSuspendFunction(handler, 2) : false) ? handler : THROW_CCE());
+  };
+  var ReceiveHook_instance;
+  function ReceiveHook_getInstance() {
+    return ReceiveHook_instance;
+  }
+  function LoggingConfig$_init_$ref_f1nb0k() {
+    var l = function () {
+      return new LoggingConfig();
+    };
+    l.callableName = '<init>';
+    return l;
+  }
+  function Logging$lambda($this$createClientPlugin) {
+    _init_properties_Logging_kt__66pui5();
+    var logger = $this$createClientPlugin.q3q_1.o5e();
+    var level = $this$createClientPlugin.q3q_1.m5e_1;
+    var filters = $this$createClientPlugin.q3q_1.i5e_1;
+    var sanitizedHeaders = $this$createClientPlugin.q3q_1.j5e_1;
+    var okHttpFormat = $this$createClientPlugin.q3q_1.l5e_1.equals(LoggingFormat_OkHttp_getInstance());
+    var tmp = SendHook_instance;
+    $this$createClientPlugin.t3q(tmp, Logging$lambda$slambda_0(okHttpFormat, logger, filters, sanitizedHeaders, level, $this$createClientPlugin, null));
+    var tmp_0 = ResponseAfterEncodingHook_instance;
+    $this$createClientPlugin.t3q(tmp_0, Logging$lambda$slambda_2(okHttpFormat, logger, sanitizedHeaders, level, $this$createClientPlugin, null));
+    var tmp_1 = ResponseHook_instance;
+    $this$createClientPlugin.t3q(tmp_1, Logging$lambda$slambda_4(okHttpFormat, level, sanitizedHeaders, null));
+    var tmp_2 = ReceiveHook_instance;
+    $this$createClientPlugin.t3q(tmp_2, Logging$lambda$slambda_6(okHttpFormat, level, null));
+    if (okHttpFormat)
+      return Unit_instance;
+    if (!level.a5e_1)
+      return Unit_instance;
+    var observer = Logging$lambda$slambda_8(level, null);
+    var tmp_3 = get_ResponseObserver();
+    var tmp_4 = get_ResponseObserver();
+    tmp_3.n3j(tmp_4.m3j(Logging$lambda$lambda(observer)), $this$createClientPlugin.p3q_1);
+    return Unit_instance;
+  }
+  function invoke$shouldBeLogged(filters, request) {
+    var tmp;
+    if (filters.h()) {
+      tmp = true;
+    } else {
+      var tmp$ret$0;
+      $l$block_0: {
+        // Inline function 'kotlin.collections.any' call
+        var tmp_0;
+        if (isInterface(filters, Collection)) {
+          tmp_0 = filters.h();
+        } else {
+          tmp_0 = false;
+        }
+        if (tmp_0) {
+          tmp$ret$0 = false;
+          break $l$block_0;
+        }
+        var _iterator__ex2g4s = filters.p();
+        while (_iterator__ex2g4s.q()) {
+          var element = _iterator__ex2g4s.r();
+          if (element(request)) {
+            tmp$ret$0 = true;
+            break $l$block_0;
+          }
+        }
+        tmp$ret$0 = false;
+      }
+      tmp = tmp$ret$0;
+    }
+    return tmp;
+  }
+  function invoke$isNone(level) {
+    return level.equals(LogLevel_NONE_getInstance());
+  }
+  function invoke$isInfo(level) {
+    return level.equals(LogLevel_INFO_getInstance());
+  }
+  function invoke$isHeaders(level) {
+    return level.equals(LogLevel_HEADERS_getInstance());
+  }
+  function invoke$isBody(level) {
+    return level.equals(LogLevel_BODY_getInstance()) || level.equals(LogLevel_ALL_getInstance());
+  }
+  function invoke$detectIfBinary($this_createClientPlugin, body, contentLength, contentType, headers, $completion) {
+    var tmp = new $invoke$detectIfBinaryCOROUTINE$3($this_createClientPlugin, body, contentLength, contentType, headers, $completion);
+    tmp.o9_1 = Unit_instance;
+    tmp.p9_1 = null;
+    return tmp.ea();
+  }
+  function invoke$logRequestBody($this_createClientPlugin, content, contentLength, headers, method, logLines, body, $completion) {
+    var tmp = new $invoke$logRequestBodyCOROUTINE$4($this_createClientPlugin, content, contentLength, headers, method, logLines, body, $completion);
+    tmp.o9_1 = Unit_instance;
+    tmp.p9_1 = null;
+    return tmp.ea();
+  }
+  function invoke$logOutgoingContent($this_createClientPlugin, content, method, headers, logLines, process, $completion) {
+    var tmp;
+    if (process === VOID) {
+      tmp = Logging$lambda$logOutgoingContent$lambda;
+    } else {
+      tmp = process;
+    }
+    process = tmp;
+    var tmp_0 = new $invoke$logOutgoingContentCOROUTINE$5($this_createClientPlugin, content, method, headers, logLines, process, $completion);
+    tmp_0.o9_1 = Unit_instance;
+    tmp_0.p9_1 = null;
+    return tmp_0.ea();
+  }
+  function invoke$logRequestOkHttpFormat(sanitizedHeaders, level, $this_createClientPlugin, request, logLines, $completion) {
+    var tmp = new $invoke$logRequestOkHttpFormatCOROUTINE$6(sanitizedHeaders, level, $this_createClientPlugin, request, logLines, $completion);
+    tmp.o9_1 = Unit_instance;
+    tmp.p9_1 = null;
+    return tmp.ea();
+  }
+  function invoke$logResponseBody($this_createClientPlugin, response, body, logLines, $completion) {
+    var tmp = new $invoke$logResponseBodyCOROUTINE$7($this_createClientPlugin, response, body, logLines, $completion);
+    tmp.o9_1 = Unit_instance;
+    tmp.p9_1 = null;
+    return tmp.ea();
+  }
+  function invoke$logResponseOkHttpFormat(sanitizedHeaders, level, $this_createClientPlugin, response, logLines, $completion) {
+    var tmp = new $invoke$logResponseOkHttpFormatCOROUTINE$8(sanitizedHeaders, level, $this_createClientPlugin, response, logLines, $completion);
+    tmp.o9_1 = Unit_instance;
+    tmp.p9_1 = null;
+    return tmp.ea();
+  }
+  function invoke$logRequestBody_0(content, logger, $completion) {
+    var requestLog = StringBuilder_init_$Create$();
+    // Inline function 'kotlin.text.appendLine' call
+    var value = 'BODY Content-Type: ' + toString_0(content.n35());
+    // Inline function 'kotlin.text.appendLine' call
+    requestLog.x8(value).y8(_Char___init__impl__6a9atx(10));
+    var tmp0_safe_receiver = content.n35();
+    var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : charset(tmp0_safe_receiver);
+    var charset_0 = tmp1_elvis_lhs == null ? Charsets_getInstance().q1x_1 : tmp1_elvis_lhs;
+    var channel = new ByteChannel();
+    var tmp = GlobalScope_instance;
+    var tmp_0 = Dispatchers_getInstance().r13_1.pj(MDCContext());
+    launch(tmp, tmp_0, VOID, Logging$lambda$logRequestBody$slambda_0(channel, charset_0, requestLog, logger, null));
+    return observe(content, channel, $completion);
+  }
+  function invoke$logRequestException(level, logger, context, cause) {
+    if (level.y5d_1) {
+      logger.w5c('REQUEST ' + Url(context.h3i_1).toString() + ' failed with exception: ' + cause.toString());
+    }
+  }
+  function invoke$logRequest(logger, level, sanitizedHeaders, request, $completion) {
+    var tmp = request.k3i_1;
+    var content = tmp instanceof OutgoingContent ? tmp : THROW_CCE();
+    var callLogger = new HttpClientCallLogger(logger);
+    request.m3i_1.x2k(get_ClientCallLogger(), callLogger);
+    // Inline function 'kotlin.text.buildString' call
+    // Inline function 'kotlin.apply' call
+    var this_0 = StringBuilder_init_$Create$();
+    if (level.y5d_1) {
+      // Inline function 'kotlin.text.appendLine' call
+      var value = 'REQUEST: ' + Url(request.h3i_1).toString();
+      // Inline function 'kotlin.text.appendLine' call
+      this_0.x8(value).y8(_Char___init__impl__6a9atx(10));
+      // Inline function 'kotlin.text.appendLine' call
+      var value_0 = 'METHOD: ' + request.i3i_1.toString();
+      // Inline function 'kotlin.text.appendLine' call
+      this_0.x8(value_0).y8(_Char___init__impl__6a9atx(10));
+    }
+    if (level.z5d_1) {
+      // Inline function 'kotlin.text.appendLine' call
+      var value_1 = 'COMMON HEADERS';
+      // Inline function 'kotlin.text.appendLine' call
+      this_0.x8(value_1).y8(_Char___init__impl__6a9atx(10));
+      logHeaders(this_0, request.j3i_1.b2p(), sanitizedHeaders);
+      // Inline function 'kotlin.text.appendLine' call
+      var value_2 = 'CONTENT HEADERS';
+      // Inline function 'kotlin.text.appendLine' call
+      this_0.x8(value_2).y8(_Char___init__impl__6a9atx(10));
+      var tmp$ret$9;
+      $l$block: {
+        // Inline function 'kotlin.collections.firstOrNull' call
+        var _iterator__ex2g4s = sanitizedHeaders.p();
+        while (_iterator__ex2g4s.q()) {
+          var element = _iterator__ex2g4s.r();
+          if (element.q5l_1(HttpHeaders_getInstance().m2w_1)) {
+            tmp$ret$9 = element;
+            break $l$block;
+          }
+        }
+        tmp$ret$9 = null;
+      }
+      var tmp0_safe_receiver = tmp$ret$9;
+      var contentLengthPlaceholder = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.p5l_1;
+      var tmp$ret$11;
+      $l$block_0: {
+        // Inline function 'kotlin.collections.firstOrNull' call
+        var _iterator__ex2g4s_0 = sanitizedHeaders.p();
+        while (_iterator__ex2g4s_0.q()) {
+          var element_0 = _iterator__ex2g4s_0.r();
+          if (element_0.q5l_1(HttpHeaders_getInstance().p2w_1)) {
+            tmp$ret$11 = element_0;
+            break $l$block_0;
+          }
+        }
+        tmp$ret$11 = null;
+      }
+      var tmp1_safe_receiver = tmp$ret$11;
+      var contentTypePlaceholder = tmp1_safe_receiver == null ? null : tmp1_safe_receiver.p5l_1;
+      var tmp2_safe_receiver = content.p35();
+      if (tmp2_safe_receiver == null)
+        null;
+      else {
+        // Inline function 'kotlin.let' call
+        var tmp_0 = HttpHeaders_getInstance().m2w_1;
+        logHeader(this_0, tmp_0, contentLengthPlaceholder == null ? tmp2_safe_receiver.toString() : contentLengthPlaceholder);
+      }
+      var tmp3_safe_receiver = content.n35();
+      if (tmp3_safe_receiver == null)
+        null;
+      else {
+        // Inline function 'kotlin.let' call
+        var tmp_1 = HttpHeaders_getInstance().p2w_1;
+        logHeader(this_0, tmp_1, contentTypePlaceholder == null ? tmp3_safe_receiver.toString() : contentTypePlaceholder);
+      }
+      logHeaders(this_0, content.a30().b2p(), sanitizedHeaders);
+    }
+    var message = this_0.toString();
+    // Inline function 'kotlin.text.isNotEmpty' call
+    if (charSequenceLength(message) > 0) {
+      callLogger.q5d(message);
+    }
+    var tmp_2;
+    // Inline function 'kotlin.text.isEmpty' call
+    if (charSequenceLength(message) === 0) {
+      tmp_2 = true;
+    } else {
+      tmp_2 = !level.a5e_1;
+    }
+    if (tmp_2) {
+      callLogger.u5d();
+      return null;
+    }
+    return invoke$logRequestBody_0(content, callLogger, $completion);
+  }
+  function invoke$logResponseException(level, log, request, cause) {
+    if (!level.y5d_1)
+      return Unit_instance;
+    log.x8('RESPONSE ' + request.t3k().toString() + ' failed with exception: ' + cause.toString());
+  }
+  function Logging$lambda$slambda($okHttpFormat, $logger, $filters, $sanitizedHeaders, $level, $this_createClientPlugin, resultContinuation) {
+    this.z5l_1 = $okHttpFormat;
+    this.a5m_1 = $logger;
+    this.b5m_1 = $filters;
+    this.c5m_1 = $sanitizedHeaders;
+    this.d5m_1 = $level;
+    this.e5m_1 = $this_createClientPlugin;
+    CoroutineImpl.call(this, resultContinuation);
+  }
+  protoOf(Logging$lambda$slambda).s5m = function ($this$on, request, $completion) {
+    var tmp = this.t5m($this$on, request, $completion);
+    tmp.o9_1 = Unit_instance;
+    tmp.p9_1 = null;
+    return tmp.ea();
+  };
+  protoOf(Logging$lambda$slambda).va = function (p1, p2, $completion) {
+    var tmp = p1 instanceof Context ? p1 : THROW_CCE();
+    return this.s5m(tmp, p2 instanceof HttpRequestBuilder ? p2 : THROW_CCE(), $completion);
+  };
+  protoOf(Logging$lambda$slambda).ea = function () {
+    var suspendResult = this.o9_1;
+    $sm: do
+      try {
+        var tmp = this.m9_1;
+        switch (tmp) {
+          case 0:
+            this.n9_1 = 16;
+            if (!invoke$shouldBeLogged(this.b5m_1, this.g5m_1)) {
+              this.g5m_1.m3i_1.x2k(get_DisableLogging(), Unit_instance);
+              return Unit_instance;
+            }
+
+            if (this.z5l_1) {
+              var tmp_0 = this;
+              tmp_0.h5m_1 = ArrayList_init_$Create$();
+              this.m9_1 = 10;
+              suspendResult = invoke$logRequestOkHttpFormat(this.c5m_1, this.d5m_1, this.e5m_1, this.g5m_1, this.h5m_1, this);
+              if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                return suspendResult;
+              }
+              continue $sm;
+            } else {
+              this.m9_1 = 1;
+              continue $sm;
+            }
+
+          case 1:
+            this.n9_1 = 3;
+            this.m9_1 = 2;
+            suspendResult = invoke$logRequest(this.a5m_1, this.d5m_1, this.c5m_1, this.g5m_1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 2:
+            this.i5m_1 = suspendResult;
+            this.n9_1 = 16;
+            this.m9_1 = 4;
+            continue $sm;
+          case 3:
+            this.n9_1 = 16;
+            var tmp_1 = this.p9_1;
+            if (tmp_1 instanceof Error) {
+              this.j5m_1 = this.p9_1;
+              var tmp_2 = this;
+              tmp_2.i5m_1 = null;
+              this.m9_1 = 4;
+              continue $sm;
+            } else {
+              throw this.p9_1;
+            }
+
+          case 4:
+            this.n9_1 = 16;
+            this.k5m_1 = this.i5m_1;
+            this.l5m_1 = Unit_instance;
+            this.m9_1 = 5;
+            continue $sm;
+          case 5:
+            this.n9_1 = 8;
+            this.n9_1 = 7;
+            this.m9_1 = 6;
+            var tmp0_elvis_lhs = this.k5m_1;
+            suspendResult = this.f5m_1.q5e(tmp0_elvis_lhs == null ? this.g5m_1.k3i_1 : tmp0_elvis_lhs, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 6:
+            this.l5m_1 = suspendResult;
+            this.n9_1 = 16;
+            this.m9_1 = 9;
+            continue $sm;
+          case 7:
+            this.n9_1 = 8;
+            var tmp_3 = this.p9_1;
+            if (tmp_3 instanceof Error) {
+              this.m5m_1 = this.p9_1;
+              var tmp_4 = this;
+              invoke$logRequestException(this.d5m_1, this.a5m_1, this.g5m_1, this.m5m_1);
+              throw this.m5m_1;
+            } else {
+              throw this.p9_1;
+            }
+
+          case 8:
+            this.n9_1 = 16;
+            this.n5m_1 = this.p9_1;
+            throw this.n5m_1;
+          case 9:
+            this.o5m_1 = this.l5m_1;
+            this.n9_1 = 16;
+            return Unit_instance;
+          case 10:
+            this.p5m_1 = suspendResult;
+            if (this.h5m_1.s() > 0) {
+              this.a5m_1.w5c(joinToString(this.h5m_1, '\n'));
+            }
+
+            this.n9_1 = 14;
+            if (!(this.p5m_1 == null)) {
+              this.m9_1 = 12;
+              suspendResult = this.f5m_1.q5e(this.p5m_1, this);
+              if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                return suspendResult;
+              }
+              continue $sm;
+            } else {
+              this.m9_1 = 11;
+              suspendResult = this.f5m_1.r5e(this);
+              if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                return suspendResult;
+              }
+              continue $sm;
+            }
+
+          case 11:
+            this.r5m_1 = suspendResult;
+            this.m9_1 = 13;
+            continue $sm;
+          case 12:
+            this.r5m_1 = suspendResult;
+            this.m9_1 = 13;
+            continue $sm;
+          case 13:
+            this.q5m_1 = this.r5m_1;
+            this.n9_1 = 16;
+            this.m9_1 = 15;
+            continue $sm;
+          case 14:
+            this.n9_1 = 16;
+            var tmp_5 = this.p9_1;
+            if (tmp_5 instanceof Error) {
+              var cause = this.p9_1;
+              var tmp_6 = this;
+              this.a5m_1.w5c('<-- HTTP FAILED: ' + cause.toString());
+              throw cause;
+            } else {
+              throw this.p9_1;
+            }
+
+          case 15:
+            this.n9_1 = 16;
+            return Unit_instance;
+          case 16:
+            throw this.p9_1;
+        }
+      } catch ($p) {
+        var e = $p;
+        if (this.n9_1 === 16) {
+          throw e;
+        } else {
+          this.m9_1 = this.n9_1;
+          this.p9_1 = e;
+        }
+      }
+     while (true);
+  };
+  protoOf(Logging$lambda$slambda).t5m = function ($this$on, request, completion) {
+    var i = new Logging$lambda$slambda(this.z5l_1, this.a5m_1, this.b5m_1, this.c5m_1, this.d5m_1, this.e5m_1, completion);
+    i.f5m_1 = $this$on;
+    i.g5m_1 = request;
+    return i;
+  };
+  function Logging$lambda$slambda_0($okHttpFormat, $logger, $filters, $sanitizedHeaders, $level, $this_createClientPlugin, resultContinuation) {
+    var i = new Logging$lambda$slambda($okHttpFormat, $logger, $filters, $sanitizedHeaders, $level, $this_createClientPlugin, resultContinuation);
+    var l = function ($this$on, request, $completion) {
+      return i.s5m($this$on, request, $completion);
+    };
+    l.$arity = 2;
+    return l;
+  }
+  function Logging$lambda$slambda_1($okHttpFormat, $logger, $sanitizedHeaders, $level, $this_createClientPlugin, resultContinuation) {
+    this.c5n_1 = $okHttpFormat;
+    this.d5n_1 = $logger;
+    this.e5n_1 = $sanitizedHeaders;
+    this.f5n_1 = $level;
+    this.g5n_1 = $this_createClientPlugin;
+    CoroutineImpl.call(this, resultContinuation);
+  }
+  protoOf(Logging$lambda$slambda_1).l5n = function ($this$on, response, $completion) {
+    var tmp = this.m5n($this$on, response, $completion);
+    tmp.o9_1 = Unit_instance;
+    tmp.p9_1 = null;
+    return tmp.ea();
+  };
+  protoOf(Logging$lambda$slambda_1).va = function (p1, p2, $completion) {
+    var tmp = p1 instanceof Context_0 ? p1 : THROW_CCE();
+    return this.l5n(tmp, p2 instanceof HttpResponse ? p2 : THROW_CCE(), $completion);
+  };
+  protoOf(Logging$lambda$slambda_1).ea = function () {
+    var suspendResult = this.o9_1;
+    $sm: do
+      try {
+        var tmp = this.m9_1;
+        switch (tmp) {
+          case 0:
+            this.n9_1 = 5;
+            if (this.c5n_1) {
+              var tmp_0 = this;
+              tmp_0.j5n_1 = ArrayList_init_$Create$();
+              this.m9_1 = 1;
+              suspendResult = invoke$logResponseOkHttpFormat(this.e5n_1, this.f5n_1, this.g5n_1, this.i5n_1, this.j5n_1, this);
+              if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                return suspendResult;
+              }
+              continue $sm;
+            } else {
+              this.m9_1 = 4;
+              continue $sm;
+            }
+
+          case 1:
+            this.k5n_1 = suspendResult;
+            if (this.j5n_1.s() > 0) {
+              this.d5n_1.w5c(joinToString(this.j5n_1, '\n'));
+            }
+
+            if (!equals(this.k5n_1, this.i5n_1)) {
+              this.m9_1 = 2;
+              suspendResult = this.h5n_1.q4d(this.k5n_1, this);
+              if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                return suspendResult;
+              }
+              continue $sm;
+            } else {
+              this.m9_1 = 3;
+              continue $sm;
+            }
+
+          case 2:
+            this.m9_1 = 3;
+            continue $sm;
+          case 3:
+            this.m9_1 = 4;
+            continue $sm;
+          case 4:
+            return Unit_instance;
+          case 5:
+            throw this.p9_1;
+        }
+      } catch ($p) {
+        var e = $p;
+        if (this.n9_1 === 5) {
+          throw e;
+        } else {
+          this.m9_1 = this.n9_1;
+          this.p9_1 = e;
+        }
+      }
+     while (true);
+  };
+  protoOf(Logging$lambda$slambda_1).m5n = function ($this$on, response, completion) {
+    var i = new Logging$lambda$slambda_1(this.c5n_1, this.d5n_1, this.e5n_1, this.f5n_1, this.g5n_1, completion);
+    i.h5n_1 = $this$on;
+    i.i5n_1 = response;
+    return i;
+  };
+  function Logging$lambda$slambda_2($okHttpFormat, $logger, $sanitizedHeaders, $level, $this_createClientPlugin, resultContinuation) {
+    var i = new Logging$lambda$slambda_1($okHttpFormat, $logger, $sanitizedHeaders, $level, $this_createClientPlugin, resultContinuation);
+    var l = function ($this$on, response, $completion) {
+      return i.l5n($this$on, response, $completion);
+    };
+    l.$arity = 2;
+    return l;
+  }
+  function Logging$lambda$slambda_3($okHttpFormat, $level, $sanitizedHeaders, resultContinuation) {
+    this.v5n_1 = $okHttpFormat;
+    this.w5n_1 = $level;
+    this.x5n_1 = $sanitizedHeaders;
+    CoroutineImpl.call(this, resultContinuation);
+  }
+  protoOf(Logging$lambda$slambda_3).h5o = function ($this$on, response, $completion) {
+    var tmp = this.i5o($this$on, response, $completion);
+    tmp.o9_1 = Unit_instance;
+    tmp.p9_1 = null;
+    return tmp.ea();
+  };
+  protoOf(Logging$lambda$slambda_3).va = function (p1, p2, $completion) {
+    var tmp = p1 instanceof Context_1 ? p1 : THROW_CCE();
+    return this.h5o(tmp, p2 instanceof HttpResponse ? p2 : THROW_CCE(), $completion);
+  };
+  protoOf(Logging$lambda$slambda_3).ea = function () {
+    var suspendResult = this.o9_1;
+    $sm: do
+      try {
+        var tmp = this.m9_1;
+        switch (tmp) {
+          case 0:
+            this.n9_1 = 10;
+            if (this.v5n_1)
+              return Unit_instance;
+            if (this.w5n_1.equals(LogLevel_NONE_getInstance()) || this.z5n_1.p3l().p3j().w2k(get_DisableLogging()))
+              return Unit_instance;
+            this.a5o_1 = this.z5n_1.p3l().p3j().u2k(get_ClientCallLogger());
+            this.b5o_1 = StringBuilder_init_$Create$();
+            this.c5o_1 = false;
+            this.m9_1 = 1;
+            continue $sm;
+          case 1:
+            this.n9_1 = 4;
+            this.n9_1 = 3;
+            logResponseHeader(this.b5o_1, this.z5n_1.p3l().h3h(), this.w5n_1, this.x5n_1);
+            this.m9_1 = 2;
+            suspendResult = this.y5n_1.s5f(this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 2:
+            this.d5o_1 = suspendResult;
+            this.n9_1 = 10;
+            this.m9_1 = 7;
+            continue $sm;
+          case 3:
+            this.n9_1 = 4;
+            var tmp_0 = this.p9_1;
+            if (tmp_0 instanceof Error) {
+              this.e5o_1 = this.p9_1;
+              var tmp_1 = this;
+              invoke$logResponseException(this.w5n_1, this.b5o_1, this.z5n_1.p3l().q3k(), this.e5o_1);
+              this.c5o_1 = true;
+              throw this.e5o_1;
+            } else {
+              throw this.p9_1;
+            }
+
+          case 4:
+            this.n9_1 = 10;
+            this.f5o_1 = this.p9_1;
+            this.a5o_1.r5d(this.b5o_1.toString());
+            if (this.c5o_1 || !this.w5n_1.a5e_1) {
+              this.m9_1 = 5;
+              suspendResult = this.a5o_1.v5d(this);
+              if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                return suspendResult;
+              }
+              continue $sm;
+            } else {
+              this.m9_1 = 6;
+              continue $sm;
+            }
+
+          case 5:
+            this.m9_1 = 6;
+            continue $sm;
+          case 6:
+            throw this.f5o_1;
+          case 7:
+            this.g5o_1 = this.d5o_1;
+            this.n9_1 = 10;
+            this.a5o_1.r5d(this.b5o_1.toString());
+            if (this.c5o_1 || !this.w5n_1.a5e_1) {
+              this.m9_1 = 8;
+              suspendResult = this.a5o_1.v5d(this);
+              if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                return suspendResult;
+              }
+              continue $sm;
+            } else {
+              this.m9_1 = 9;
+              continue $sm;
+            }
+
+          case 8:
+            this.m9_1 = 9;
+            continue $sm;
+          case 9:
+            return Unit_instance;
+          case 10:
+            throw this.p9_1;
+        }
+      } catch ($p) {
+        var e = $p;
+        if (this.n9_1 === 10) {
+          throw e;
+        } else {
+          this.m9_1 = this.n9_1;
+          this.p9_1 = e;
+        }
+      }
+     while (true);
+  };
+  protoOf(Logging$lambda$slambda_3).i5o = function ($this$on, response, completion) {
+    var i = new Logging$lambda$slambda_3(this.v5n_1, this.w5n_1, this.x5n_1, completion);
+    i.y5n_1 = $this$on;
+    i.z5n_1 = response;
+    return i;
+  };
+  function Logging$lambda$slambda_4($okHttpFormat, $level, $sanitizedHeaders, resultContinuation) {
+    var i = new Logging$lambda$slambda_3($okHttpFormat, $level, $sanitizedHeaders, resultContinuation);
+    var l = function ($this$on, response, $completion) {
+      return i.h5o($this$on, response, $completion);
+    };
+    l.$arity = 2;
+    return l;
+  }
+  function Logging$lambda$slambda_5($okHttpFormat, $level, resultContinuation) {
+    this.r5o_1 = $okHttpFormat;
+    this.s5o_1 = $level;
+    CoroutineImpl.call(this, resultContinuation);
+  }
+  protoOf(Logging$lambda$slambda_5).z5o = function ($this$on, call, $completion) {
+    var tmp = this.a5p($this$on, call, $completion);
+    tmp.o9_1 = Unit_instance;
+    tmp.p9_1 = null;
+    return tmp.ea();
+  };
+  protoOf(Logging$lambda$slambda_5).va = function (p1, p2, $completion) {
+    var tmp = p1 instanceof Context_2 ? p1 : THROW_CCE();
+    return this.z5o(tmp, p2 instanceof HttpClientCall ? p2 : THROW_CCE(), $completion);
+  };
+  protoOf(Logging$lambda$slambda_5).ea = function () {
+    var suspendResult = this.o9_1;
+    $sm: do
+      try {
+        var tmp = this.m9_1;
+        switch (tmp) {
+          case 0:
+            this.n9_1 = 6;
+            if (this.r5o_1)
+              return Unit_instance;
+            if (this.s5o_1.equals(LogLevel_NONE_getInstance()) || this.u5o_1.p3j().w2k(get_DisableLogging())) {
+              return Unit_instance;
+            }
+
+            this.n9_1 = 2;
+            this.m9_1 = 1;
+            suspendResult = this.t5o_1.g5g(this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            this.v5o_1 = suspendResult;
+            this.n9_1 = 6;
+            this.m9_1 = 5;
+            continue $sm;
+          case 2:
+            this.n9_1 = 6;
+            var tmp_0 = this.p9_1;
+            if (tmp_0 instanceof Error) {
+              this.w5o_1 = this.p9_1;
+              this.x5o_1 = StringBuilder_init_$Create$();
+              this.y5o_1 = this.u5o_1.p3j().u2k(get_ClientCallLogger());
+              invoke$logResponseException(this.s5o_1, this.x5o_1, this.u5o_1.q3k(), this.w5o_1);
+              this.m9_1 = 3;
+              suspendResult = this.y5o_1.s5d(this.x5o_1.toString(), this);
+              if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                return suspendResult;
+              }
+              continue $sm;
+            } else {
+              throw this.p9_1;
+            }
+
+          case 3:
+            this.m9_1 = 4;
+            suspendResult = this.y5o_1.v5d(this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 4:
+            var tmp_1 = this;
+            throw this.w5o_1;
+          case 5:
+            this.n9_1 = 6;
+            return Unit_instance;
+          case 6:
+            throw this.p9_1;
+        }
+      } catch ($p) {
+        var e = $p;
+        if (this.n9_1 === 6) {
+          throw e;
+        } else {
+          this.m9_1 = this.n9_1;
+          this.p9_1 = e;
+        }
+      }
+     while (true);
+  };
+  protoOf(Logging$lambda$slambda_5).a5p = function ($this$on, call, completion) {
+    var i = new Logging$lambda$slambda_5(this.r5o_1, this.s5o_1, completion);
+    i.t5o_1 = $this$on;
+    i.u5o_1 = call;
+    return i;
+  };
+  function Logging$lambda$slambda_6($okHttpFormat, $level, resultContinuation) {
+    var i = new Logging$lambda$slambda_5($okHttpFormat, $level, resultContinuation);
+    var l = function ($this$on, call, $completion) {
+      return i.z5o($this$on, call, $completion);
+    };
+    l.$arity = 2;
+    return l;
+  }
+  function Logging$lambda$slambda_7($level, resultContinuation) {
+    this.j5p_1 = $level;
+    CoroutineImpl.call(this, resultContinuation);
+  }
+  protoOf(Logging$lambda$slambda_7).g3t = function (it, $completion) {
+    var tmp = this.q3r(it, $completion);
+    tmp.o9_1 = Unit_instance;
+    tmp.p9_1 = null;
+    return tmp.ea();
+  };
+  protoOf(Logging$lambda$slambda_7).ua = function (p1, $completion) {
+    return this.g3t(p1 instanceof HttpResponse ? p1 : THROW_CCE(), $completion);
+  };
+  protoOf(Logging$lambda$slambda_7).ea = function () {
+    var suspendResult = this.o9_1;
+    $sm: do
+      try {
+        var tmp = this.m9_1;
+        switch (tmp) {
+          case 0:
+            this.n9_1 = 10;
+            if (this.j5p_1.equals(LogLevel_NONE_getInstance()) || this.k5p_1.p3l().p3j().w2k(get_DisableLogging())) {
+              return Unit_instance;
+            }
+
+            this.l5p_1 = this.k5p_1.p3l().p3j().u2k(get_ClientCallLogger());
+            this.m5p_1 = StringBuilder_init_$Create$();
+            this.m9_1 = 1;
+            continue $sm;
+          case 1:
+            this.n9_1 = 4;
+            this.n9_1 = 3;
+            this.m9_1 = 2;
+            suspendResult = logResponseBody(this.m5p_1, contentType(this.k5p_1), this.k5p_1.r3k(), this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 2:
+            this.n5p_1 = suspendResult;
+            this.n9_1 = 10;
+            this.m9_1 = 7;
+            continue $sm;
+          case 3:
+            this.n9_1 = 4;
+            var tmp_0 = this.p9_1;
+            if (tmp_0 instanceof Error) {
+              this.o5p_1 = this.p9_1;
+              var tmp_1 = this;
+              tmp_1.n5p_1 = Unit_instance;
+              this.n9_1 = 10;
+              this.m9_1 = 7;
+              continue $sm;
+            } else {
+              throw this.p9_1;
+            }
+
+          case 4:
+            this.n9_1 = 10;
+            this.p5p_1 = this.p9_1;
+            this.m9_1 = 5;
+            var this_0 = this.m5p_1.toString();
+            suspendResult = this.l5p_1.t5d(toString(trim(isCharSequence(this_0) ? this_0 : THROW_CCE())), this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 5:
+            this.m9_1 = 6;
+            suspendResult = this.l5p_1.v5d(this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 6:
+            throw this.p5p_1;
+          case 7:
+            this.n9_1 = 10;
+            this.m9_1 = 8;
+            var this_1 = this.m5p_1.toString();
+            suspendResult = this.l5p_1.t5d(toString(trim(isCharSequence(this_1) ? this_1 : THROW_CCE())), this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 8:
+            this.m9_1 = 9;
+            suspendResult = this.l5p_1.v5d(this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 9:
+            return Unit_instance;
+          case 10:
+            throw this.p9_1;
+        }
+      } catch ($p) {
+        var e = $p;
+        if (this.n9_1 === 10) {
+          throw e;
+        } else {
+          this.m9_1 = this.n9_1;
+          this.p9_1 = e;
+        }
+      }
+     while (true);
+  };
+  protoOf(Logging$lambda$slambda_7).q3r = function (it, completion) {
+    var i = new Logging$lambda$slambda_7(this.j5p_1, completion);
+    i.k5p_1 = it;
+    return i;
+  };
+  function Logging$lambda$slambda_8($level, resultContinuation) {
+    var i = new Logging$lambda$slambda_7($level, resultContinuation);
+    var l = function (it, $completion) {
+      return i.g3t(it, $completion);
+    };
+    l.$arity = 1;
+    return l;
+  }
+  function Logging$lambda$lambda($observer) {
+    return function ($this$prepare) {
+      $this$prepare.o4d($observer);
+      return Unit_instance;
+    };
+  }
+  function Logging$lambda$detectIfBinary$slambda($channel, $firstChunk, $firstReadSize, $body, resultContinuation) {
+    this.y5p_1 = $channel;
+    this.z5p_1 = $firstChunk;
+    this.a5q_1 = $firstReadSize;
+    this.b5q_1 = $body;
+    CoroutineImpl.call(this, resultContinuation);
+  }
+  protoOf(Logging$lambda$detectIfBinary$slambda).e5q = function ($this$async, $completion) {
+    var tmp = this.z1g($this$async, $completion);
+    tmp.o9_1 = Unit_instance;
+    tmp.p9_1 = null;
+    return tmp.ea();
+  };
+  protoOf(Logging$lambda$detectIfBinary$slambda).ua = function (p1, $completion) {
+    return this.e5q((!(p1 == null) ? isInterface(p1, CoroutineScope) : false) ? p1 : THROW_CCE(), $completion);
+  };
+  protoOf(Logging$lambda$detectIfBinary$slambda).ea = function () {
+    var suspendResult = this.o9_1;
+    $sm: do
+      try {
+        var tmp = this.m9_1;
+        switch (tmp) {
+          case 0:
+            this.n9_1 = 4;
+            this.m9_1 = 1;
+            suspendResult = writeFully(this.y5p_1, this.z5p_1, 0, this.a5q_1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            this.m9_1 = 2;
+            suspendResult = copyTo(this.b5q_1, this.y5p_1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 2:
+            this.d5q_1 = suspendResult;
+            this.m9_1 = 3;
+            suspendResult = this.y5p_1.e1n(this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 3:
+            return this.d5q_1;
+          case 4:
+            throw this.p9_1;
+        }
+      } catch ($p) {
+        var e = $p;
+        if (this.n9_1 === 4) {
+          throw e;
+        } else {
+          this.m9_1 = this.n9_1;
+          this.p9_1 = e;
+        }
+      }
+     while (true);
+  };
+  protoOf(Logging$lambda$detectIfBinary$slambda).z1g = function ($this$async, completion) {
+    var i = new Logging$lambda$detectIfBinary$slambda(this.y5p_1, this.z5p_1, this.a5q_1, this.b5q_1, completion);
+    i.c5q_1 = $this$async;
+    return i;
+  };
+  function Logging$lambda$detectIfBinary$slambda_0($channel, $firstChunk, $firstReadSize, $body, resultContinuation) {
+    var i = new Logging$lambda$detectIfBinary$slambda($channel, $firstChunk, $firstReadSize, $body, resultContinuation);
+    var l = function ($this$async, $completion) {
+      return i.e5q($this$async, $completion);
+    };
+    l.$arity = 1;
+    return l;
+  }
+  function Logging$lambda$logOutgoingContent$lambda(it) {
+    _init_properties_Logging_kt__66pui5();
+    return it;
+  }
+  function Logging$lambda$logOutgoingContent$slambda($content, $channel, resultContinuation) {
+    this.n5q_1 = $content;
+    this.o5q_1 = $channel;
+    CoroutineImpl.call(this, resultContinuation);
+  }
+  protoOf(Logging$lambda$logOutgoingContent$slambda).v1w = function ($this$launch, $completion) {
+    var tmp = this.z1g($this$launch, $completion);
+    tmp.o9_1 = Unit_instance;
+    tmp.p9_1 = null;
+    return tmp.ea();
+  };
+  protoOf(Logging$lambda$logOutgoingContent$slambda).ua = function (p1, $completion) {
+    return this.v1w((!(p1 == null) ? isInterface(p1, CoroutineScope) : false) ? p1 : THROW_CCE(), $completion);
+  };
+  protoOf(Logging$lambda$logOutgoingContent$slambda).ea = function () {
+    var suspendResult = this.o9_1;
+    $sm: do
+      try {
+        var tmp = this.m9_1;
+        switch (tmp) {
+          case 0:
+            this.n9_1 = 2;
+            this.m9_1 = 1;
+            suspendResult = this.n5q_1.v35(this.o5q_1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            this.o5q_1.w4();
+            return Unit_instance;
+          case 2:
+            throw this.p9_1;
+        }
+      } catch ($p) {
+        var e = $p;
+        if (this.n9_1 === 2) {
+          throw e;
+        } else {
+          this.m9_1 = this.n9_1;
+          this.p9_1 = e;
+        }
+      }
+     while (true);
+  };
+  protoOf(Logging$lambda$logOutgoingContent$slambda).z1g = function ($this$launch, completion) {
+    var i = new Logging$lambda$logOutgoingContent$slambda(this.n5q_1, this.o5q_1, completion);
+    i.p5q_1 = $this$launch;
+    return i;
+  };
+  function Logging$lambda$logOutgoingContent$slambda_0($content, $channel, resultContinuation) {
+    var i = new Logging$lambda$logOutgoingContent$slambda($content, $channel, resultContinuation);
+    var l = function ($this$launch, $completion) {
+      return i.v1w($this$launch, $completion);
+    };
+    l.$arity = 1;
+    return l;
+  }
+  function Logging$lambda$logRequestOkHttpFormat$lambda(channel) {
+    _init_properties_Logging_kt__66pui5();
+    return GZipEncoder_getInstance().n2o(channel);
+  }
+  function Logging$lambda$logRequestBody$slambda($channel, $charset, $requestLog, $logger, resultContinuation) {
+    this.y5q_1 = $channel;
+    this.z5q_1 = $charset;
+    this.a5r_1 = $requestLog;
+    this.b5r_1 = $logger;
+    CoroutineImpl.call(this, resultContinuation);
+  }
+  protoOf(Logging$lambda$logRequestBody$slambda).v1w = function ($this$launch, $completion) {
+    var tmp = this.z1g($this$launch, $completion);
+    tmp.o9_1 = Unit_instance;
+    tmp.p9_1 = null;
+    return tmp.ea();
+  };
+  protoOf(Logging$lambda$logRequestBody$slambda).ua = function (p1, $completion) {
+    return this.v1w((!(p1 == null) ? isInterface(p1, CoroutineScope) : false) ? p1 : THROW_CCE(), $completion);
+  };
+  protoOf(Logging$lambda$logRequestBody$slambda).ea = function () {
+    var suspendResult = this.o9_1;
+    $sm: do
+      try {
+        var tmp = this.m9_1;
+        switch (tmp) {
+          case 0:
+            this.n9_1 = 7;
+            this.m9_1 = 1;
+            continue $sm;
+          case 1:
+            this.n9_1 = 6;
+            var tmp_0 = this;
+            tmp_0.e5r_1 = this.y5q_1;
+            var tmp_1 = this;
+            tmp_1.f5r_1 = this.z5q_1;
+            this.g5r_1 = this.e5r_1;
+            this.h5r_1 = this.f5r_1;
+            this.n9_1 = 3;
+            this.m9_1 = 2;
+            suspendResult = readRemaining(this.g5r_1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 2:
+            var ARGUMENT = suspendResult;
+            this.i5r_1 = readText(ARGUMENT, this.h5r_1);
+            this.n9_1 = 6;
+            this.m9_1 = 4;
+            continue $sm;
+          case 3:
+            this.n9_1 = 6;
+            var tmp_2 = this.p9_1;
+            if (tmp_2 instanceof Error) {
+              var cause = this.p9_1;
+              var tmp_3 = this;
+              tmp_3.i5r_1 = null;
+              this.m9_1 = 4;
+              continue $sm;
+            } else {
+              throw this.p9_1;
+            }
+
+          case 4:
+            this.n9_1 = 6;
+            var tmp0_elvis_lhs = this.i5r_1;
+            var text = tmp0_elvis_lhs == null ? '[request body omitted]' : tmp0_elvis_lhs;
+            var tmp2 = this.a5r_1;
+            var value = 'BODY START';
+            tmp2.x8(value).y8(_Char___init__impl__6a9atx(10));
+            this.a5r_1.x8(text).y8(_Char___init__impl__6a9atx(10));
+            this.d5r_1 = this.a5r_1.x8('BODY END');
+            this.n9_1 = 7;
+            this.m9_1 = 5;
+            continue $sm;
+          case 5:
+            this.d5r_1;
+            this.n9_1 = 7;
+            this.b5r_1.q5d(this.a5r_1.toString());
+            this.b5r_1.u5d();
+            return Unit_instance;
+          case 6:
+            this.n9_1 = 7;
+            var t = this.p9_1;
+            this.b5r_1.q5d(this.a5r_1.toString());
+            this.b5r_1.u5d();
+            throw t;
+          case 7:
+            throw this.p9_1;
+        }
+      } catch ($p) {
+        var e = $p;
+        if (this.n9_1 === 7) {
+          throw e;
+        } else {
+          this.m9_1 = this.n9_1;
+          this.p9_1 = e;
+        }
+      }
+     while (true);
+  };
+  protoOf(Logging$lambda$logRequestBody$slambda).z1g = function ($this$launch, completion) {
+    var i = new Logging$lambda$logRequestBody$slambda(this.y5q_1, this.z5q_1, this.a5r_1, this.b5r_1, completion);
+    i.c5r_1 = $this$launch;
+    return i;
+  };
+  function Logging$lambda$logRequestBody$slambda_0($channel, $charset, $requestLog, $logger, resultContinuation) {
+    var i = new Logging$lambda$logRequestBody$slambda($channel, $charset, $requestLog, $logger, resultContinuation);
+    var l = function ($this$launch, $completion) {
+      return i.v1w($this$launch, $completion);
+    };
+    l.$arity = 1;
+    return l;
+  }
+  function $invoke$detectIfBinaryCOROUTINE$3($this_createClientPlugin, body, contentLength, contentType, headers, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this.b5h_1 = $this_createClientPlugin;
+    this.c5h_1 = body;
+    this.d5h_1 = contentLength;
+    this.e5h_1 = contentType;
+    this.f5h_1 = headers;
+  }
+  protoOf($invoke$detectIfBinaryCOROUTINE$3).ea = function () {
+    var suspendResult = this.o9_1;
+    $sm: do
+      try {
+        var tmp = this.m9_1;
+        switch (tmp) {
+          case 0:
+            this.n9_1 = 4;
+            if (this.f5h_1.c2p(HttpHeaders_getInstance().k2w_1)) {
+              return new Triple(true, this.d5h_1, this.c5h_1);
+            }
+
+            var tmp_0 = this;
+            var tmp_1;
+            if (!(this.e5h_1 == null)) {
+              var tmp0_elvis_lhs = charset(this.e5h_1);
+              tmp_1 = tmp0_elvis_lhs == null ? Charsets_getInstance().q1x_1 : tmp0_elvis_lhs;
+            } else {
+              tmp_1 = Charsets_getInstance().q1x_1;
+            }
+
+            tmp_0.g5h_1 = tmp_1;
+            this.h5h_1 = false;
+            this.i5h_1 = new Int8Array(1024);
+            this.m9_1 = 1;
+            suspendResult = readAvailable(this.c5h_1, this.i5h_1, VOID, VOID, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            this.j5h_1 = suspendResult;
+            if (this.j5h_1 < 1) {
+              return new Triple(false, new Long(0, 0), this.c5h_1);
+            }
+
+            var tmp_2 = this;
+            var this_0 = new Buffer();
+            writeFully_0(this_0, this.i5h_1, 0, this.j5h_1);
+            tmp_2.k5h_1 = this_0;
+            this.l5h_1 = decode(this.g5h_1.u1x(), this.k5h_1, this.j5h_1);
+            this.m5h_1 = -1;
+            var indexedObject = this.l5h_1;
+            var inductionVariable = 0;
+            var last = indexedObject.length;
+            while (inductionVariable < last) {
+              var ch = charSequenceGet(indexedObject, inductionVariable);
+              inductionVariable = inductionVariable + 1 | 0;
+              this.m5h_1 = this.m5h_1 + 1 | 0;
+            }
+
+            var indexedObject_0 = this.l5h_1;
+            var inductionVariable_0 = 0;
+            var last_0 = indexedObject_0.length;
+            $l$loop: while (inductionVariable_0 < last_0) {
+              var i = inductionVariable_0;
+              var ch_0 = charSequenceGet(indexedObject_0, inductionVariable_0);
+              inductionVariable_0 = inductionVariable_0 + 1 | 0;
+              if (ch_0 === _Char___init__impl__6a9atx(65533) && !(i === this.m5h_1)) {
+                this.h5h_1 = true;
+                break $l$loop;
+              }
+            }
+
+            if (!this.h5h_1) {
+              this.n5h_1 = new ByteChannel();
+              this.m9_1 = 3;
+              suspendResult = async(this.b5h_1.p3q_1, VOID, VOID, Logging$lambda$detectIfBinary$slambda_0(this.n5h_1, this.i5h_1, this.j5h_1, this.c5h_1, null)).xw(this);
+              if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                return suspendResult;
+              }
+              continue $sm;
+            } else {
+              this.m9_1 = 2;
+              continue $sm;
+            }
+
+          case 2:
+            return new Triple(this.h5h_1, this.d5h_1, this.c5h_1);
+          case 3:
+            var copied = suspendResult;
+            var tmp_3 = this.h5h_1;
+            var other = this.j5h_1;
+            return new Triple(tmp_3, copied.z2(toLong(other)), this.n5h_1);
+          case 4:
+            throw this.p9_1;
+        }
+      } catch ($p) {
+        var e = $p;
+        if (this.n9_1 === 4) {
+          throw e;
+        } else {
+          this.m9_1 = this.n9_1;
+          this.p9_1 = e;
+        }
+      }
+     while (true);
+  };
+  function $invoke$logRequestBodyCOROUTINE$4($this_createClientPlugin, content, contentLength, headers, method, logLines, body, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this.w5h_1 = $this_createClientPlugin;
+    this.x5h_1 = content;
+    this.y5h_1 = contentLength;
+    this.z5h_1 = headers;
+    this.a5i_1 = method;
+    this.b5i_1 = logLines;
+    this.c5i_1 = body;
+  }
+  protoOf($invoke$logRequestBodyCOROUTINE$4).ea = function () {
+    var suspendResult = this.o9_1;
+    $sm: do
+      try {
+        var tmp = this.m9_1;
+        switch (tmp) {
+          case 0:
+            this.n9_1 = 4;
+            this.m9_1 = 1;
+            suspendResult = invoke$detectIfBinary(this.w5h_1, this.c5i_1, this.y5h_1, this.x5h_1.n35(), this.z5h_1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            this.d5i_1 = suspendResult;
+            this.e5i_1 = this.d5i_1.cc();
+            this.f5i_1 = this.d5i_1.dc();
+            this.g5i_1 = this.d5i_1.qp();
+            if (!this.e5i_1) {
+              this.i5i_1 = this.x5h_1.n35();
+              var tmp_0 = this;
+              var tmp_1;
+              if (!(this.i5i_1 == null)) {
+                var tmp0_elvis_lhs = charset(this.i5i_1);
+                tmp_1 = tmp0_elvis_lhs == null ? Charsets_getInstance().q1x_1 : tmp0_elvis_lhs;
+              } else {
+                tmp_1 = Charsets_getInstance().q1x_1;
+              }
+              tmp_0.j5i_1 = tmp_1;
+              this.m9_1 = 2;
+              suspendResult = readRemaining(this.g5i_1, this);
+              if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                return suspendResult;
+              }
+              continue $sm;
+            } else {
+              var tmp_2 = this;
+              var type = 'binary';
+              if (this.z5h_1.c2p(HttpHeaders_getInstance().k2w_1)) {
+                type = 'encoded';
+              }
+              var tmp_3;
+              if (!(this.f5i_1 == null)) {
+                tmp_3 = this.b5i_1.n('--> END ' + this.a5i_1.j30_1 + ' (' + type + ' ' + toString_0(this.f5i_1) + '-byte body omitted)');
+              } else {
+                tmp_3 = this.b5i_1.n('--> END ' + this.a5i_1.j30_1 + ' (' + type + ' body omitted)');
+              }
+              tmp_2.h5i_1 = tmp_3;
+              this.m9_1 = 3;
+              continue $sm;
+            }
+
+          case 2:
+            var ARGUMENT = suspendResult;
+            var ARGUMENT_0 = readText(ARGUMENT, this.j5i_1);
+            this.b5i_1.n(ARGUMENT_0);
+            this.h5i_1 = this.b5i_1.n('--> END ' + this.a5i_1.j30_1 + ' (' + toString_0(this.f5i_1) + '-byte body)');
+            this.m9_1 = 3;
+            continue $sm;
+          case 3:
+            return Unit_instance;
+          case 4:
+            throw this.p9_1;
+        }
+      } catch ($p) {
+        var e = $p;
+        if (this.n9_1 === 4) {
+          throw e;
+        } else {
+          this.m9_1 = this.n9_1;
+          this.p9_1 = e;
+        }
+      }
+     while (true);
+  };
+  function $invoke$logOutgoingContentCOROUTINE$5($this_createClientPlugin, content, method, headers, logLines, process, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this.s5i_1 = $this_createClientPlugin;
+    this.t5i_1 = content;
+    this.u5i_1 = method;
+    this.v5i_1 = headers;
+    this.w5i_1 = logLines;
+    this.x5i_1 = process;
+  }
+  protoOf($invoke$logOutgoingContentCOROUTINE$5).ea = function () {
+    var suspendResult = this.o9_1;
+    $sm: do
+      try {
+        var tmp = this.m9_1;
+        switch (tmp) {
+          case 0:
+            this.n9_1 = 6;
+            this.y5i_1 = this.t5i_1;
+            var tmp_0 = this.y5i_1;
+            if (tmp_0 instanceof ByteArrayContent) {
+              this.a5j_1 = this.t5i_1.q35();
+              this.m9_1 = 4;
+              suspendResult = invoke$logRequestBody(this.s5i_1, this.t5i_1, toLong(this.a5j_1.length), this.v5i_1, this.u5i_1, this.w5i_1, ByteReadChannel(this.a5j_1), this);
+              if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                return suspendResult;
+              }
+              continue $sm;
+            } else {
+              var tmp_1 = this.y5i_1;
+              if (tmp_1 instanceof ContentWrapper) {
+                this.m9_1 = 3;
+                suspendResult = invoke$logOutgoingContent(this.s5i_1, this.t5i_1.z35(), this.u5i_1, this.v5i_1, this.w5i_1, this.x5i_1, this);
+                if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                  return suspendResult;
+                }
+                continue $sm;
+              } else {
+                var tmp_2 = this.y5i_1;
+                if (tmp_2 instanceof NoContent) {
+                  var tmp_3 = this;
+                  this.w5i_1.n('--> END ' + this.u5i_1.j30_1);
+                  tmp_3.z5i_1 = null;
+                  this.m9_1 = 5;
+                  continue $sm;
+                } else {
+                  var tmp_4 = this.y5i_1;
+                  if (tmp_4 instanceof ProtocolUpgrade) {
+                    var tmp_5 = this;
+                    this.w5i_1.n('--> END ' + this.u5i_1.j30_1);
+                    tmp_5.z5i_1 = null;
+                    this.m9_1 = 5;
+                    continue $sm;
+                  } else {
+                    var tmp_6 = this.y5i_1;
+                    if (tmp_6 instanceof ReadChannelContent) {
+                      this.b5j_1 = split(this.t5i_1.t35(), this.s5i_1.p3q_1);
+                      this.c5j_1 = this.b5j_1.cc();
+                      this.d5j_1 = this.b5j_1.dc();
+                      this.m9_1 = 2;
+                      suspendResult = invoke$logRequestBody(this.s5i_1, this.t5i_1, this.t5i_1.p35(), this.v5i_1, this.u5i_1, this.w5i_1, this.d5j_1, this);
+                      if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                        return suspendResult;
+                      }
+                      continue $sm;
+                    } else {
+                      var tmp_7 = this.y5i_1;
+                      if (tmp_7 instanceof WriteChannelContent) {
+                        this.e5j_1 = new ByteChannel();
+                        launch(this.s5i_1.p3q_1, VOID, VOID, Logging$lambda$logOutgoingContent$slambda_0(this.t5i_1, this.e5j_1, null));
+                        this.f5j_1 = split(this.e5j_1, this.s5i_1.p3q_1);
+                        this.g5j_1 = this.f5j_1.cc();
+                        this.h5j_1 = this.f5j_1.dc();
+                        this.m9_1 = 1;
+                        suspendResult = invoke$logRequestBody(this.s5i_1, this.t5i_1, this.t5i_1.p35(), this.v5i_1, this.u5i_1, this.w5i_1, this.h5j_1, this);
+                        if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                          return suspendResult;
+                        }
+                        continue $sm;
+                      } else {
+                        var tmp_8 = this;
+                        noWhenBranchMatchedException();
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            break;
+          case 1:
+            this.z5i_1 = new LoggedContent(this.t5i_1, this.g5j_1);
+            this.m9_1 = 5;
+            continue $sm;
+          case 2:
+            this.z5i_1 = new LoggedContent(this.t5i_1, this.c5j_1);
+            this.m9_1 = 5;
+            continue $sm;
+          case 3:
+            this.z5i_1 = suspendResult;
+            this.m9_1 = 5;
+            continue $sm;
+          case 4:
+            this.z5i_1 = null;
+            this.m9_1 = 5;
+            continue $sm;
+          case 5:
+            return this.z5i_1;
+          case 6:
+            throw this.p9_1;
+        }
+      } catch ($p) {
+        var e = $p;
+        if (this.n9_1 === 6) {
+          throw e;
+        } else {
+          this.m9_1 = this.n9_1;
+          this.p9_1 = e;
+        }
+      }
+     while (true);
+  };
+  function $invoke$logRequestOkHttpFormatCOROUTINE$6(sanitizedHeaders, level, $this_createClientPlugin, request, logLines, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this.q5j_1 = sanitizedHeaders;
+    this.r5j_1 = level;
+    this.s5j_1 = $this_createClientPlugin;
+    this.t5j_1 = request;
+    this.u5j_1 = logLines;
+  }
+  protoOf($invoke$logRequestOkHttpFormatCOROUTINE$6).ea = function () {
+    var suspendResult = this.o9_1;
+    $sm: do
+      try {
+        var tmp = this.m9_1;
+        switch (tmp) {
+          case 0:
+            this.n9_1 = 4;
+            if (invoke$isNone(this.r5j_1))
+              return null;
+            this.v5j_1 = pathQuery(takeFrom(new URLBuilder(), this.t5j_1.h3i_1).w2v());
+            this.w5j_1 = this.t5j_1.k3i_1;
+            var tmp_0 = this;
+            var this_0 = new HeadersBuilder();
+            var tmp_1;
+            var tmp_2;
+            var tmp_3;
+            var tmp_4 = this.w5j_1;
+            if (tmp_4 instanceof OutgoingContent) {
+              tmp_3 = !this.t5j_1.i3i_1.equals(Companion_getInstance().b30_1);
+            } else {
+              tmp_3 = false;
+            }
+
+            if (tmp_3) {
+              tmp_2 = !this.t5j_1.i3i_1.equals(Companion_getInstance().g30_1);
+            } else {
+              tmp_2 = false;
+            }
+
+            if (tmp_2) {
+              var tmp_5 = this.w5j_1;
+              tmp_1 = !(tmp_5 instanceof EmptyContent);
+            } else {
+              tmp_1 = false;
+            }
+
+            if (tmp_1) {
+              var tmp0_safe_receiver = this.w5j_1.n35();
+              if (tmp0_safe_receiver == null)
+                null;
+              else {
+                appendIfNameAbsent(this_0, HttpHeaders_getInstance().p2w_1, tmp0_safe_receiver.toString());
+              }
+              var tmp1_safe_receiver = this.w5j_1.p35();
+              if (tmp1_safe_receiver == null)
+                null;
+              else {
+                appendIfNameAbsent(this_0, HttpHeaders_getInstance().m2w_1, tmp1_safe_receiver.toString());
+              }
+            }
+
+            appendAll(this_0, this.t5j_1.j3i_1);
+            tmp_0.x5j_1 = this_0.w2v();
+            var tmp_6 = this;
+            var tmp0_safe_receiver_0 = this.x5j_1.ze(HttpHeaders_getInstance().m2w_1);
+            tmp_6.y5j_1 = tmp0_safe_receiver_0 == null ? null : toLongOrNull(tmp0_safe_receiver_0);
+            var tmp_7 = this;
+            var tmp_8;
+            if (this.t5j_1.i3i_1.equals(Companion_getInstance().b30_1) || this.t5j_1.i3i_1.equals(Companion_getInstance().g30_1) || ((invoke$isHeaders(this.r5j_1) || invoke$isBody(this.r5j_1)) && !(this.y5j_1 == null)) || (invoke$isHeaders(this.r5j_1) && this.y5j_1 == null) || this.x5j_1.c2p(HttpHeaders_getInstance().k2w_1)) {
+              tmp_8 = '--> ' + this.t5j_1.i3i_1.j30_1 + ' ' + this.v5j_1;
+            } else {
+              if (invoke$isInfo(this.r5j_1) && !(this.y5j_1 == null)) {
+                tmp_8 = '--> ' + this.t5j_1.i3i_1.j30_1 + ' ' + this.v5j_1 + ' (' + toString_0(this.y5j_1) + '-byte body)';
+              } else {
+                var tmp_9;
+                var tmp_10 = this.w5j_1;
+                if (tmp_10 instanceof WriteChannelContent) {
+                  tmp_9 = true;
+                } else {
+                  var tmp_11 = this.w5j_1;
+                  tmp_9 = tmp_11 instanceof ReadChannelContent;
+                }
+                if (tmp_9) {
+                  tmp_8 = '--> ' + this.t5j_1.i3i_1.j30_1 + ' ' + this.v5j_1 + ' (unknown-byte body)';
+                } else {
+                  var size = computeRequestBodySize(this.t5j_1.k3i_1);
+                  tmp_8 = '--> ' + this.t5j_1.i3i_1.j30_1 + ' ' + this.v5j_1 + ' (' + size.toString() + '-byte body)';
+                }
+              }
+            }
+
+            tmp_7.z5j_1 = tmp_8;
+            this.u5j_1.n(this.z5j_1);
+            if (!invoke$isHeaders(this.r5j_1) && !invoke$isBody(this.r5j_1)) {
+              return null;
+            }
+
+            var _iterator__ex2g4s = this.x5j_1.b2p().p();
+            while (_iterator__ex2g4s.q()) {
+              var _destruct__k2r9zo = _iterator__ex2g4s.r();
+              var name = _destruct__k2r9zo.y();
+              var values = _destruct__k2r9zo.z();
+              var tmp0 = this.q5j_1;
+              var tmp$ret$0 = Unit_instance;
+              l$ret$1: do {
+                var _iterator__ex2g4s_0 = tmp0.p();
+                while (_iterator__ex2g4s_0.q()) {
+                  var element = _iterator__ex2g4s_0.r();
+                  if (element.q5l_1(name)) {
+                    tmp$ret$0 = element;
+                    break l$ret$1;
+                  }
+                }
+                tmp$ret$0 = null;
+              }
+               while (false);
+              if (tmp$ret$0 == null) {
+                this.u5j_1.n(name + ': ' + joinToString(values, ', '));
+              } else {
+                this.u5j_1.n(name + ': \u2588\u2588');
+              }
+            }
+
+            if (!invoke$isBody(this.r5j_1) || this.t5j_1.i3i_1.equals(Companion_getInstance().b30_1) || this.t5j_1.i3i_1.equals(Companion_getInstance().g30_1)) {
+              this.u5j_1.n('--> END ' + this.t5j_1.i3i_1.j30_1);
+              return null;
+            }
+
+            this.u5j_1.n('');
+            var tmp_12 = this.w5j_1;
+            if (!(tmp_12 instanceof OutgoingContent)) {
+              this.u5j_1.n('--> END ' + this.t5j_1.i3i_1.j30_1);
+              return null;
+            }
+
+            if (this.t5j_1.j3i_1.ze(HttpHeaders_getInstance().k2w_1) === 'gzip') {
+              this.m9_1 = 2;
+              var tmp_13 = this.t5j_1.i3i_1;
+              suspendResult = invoke$logOutgoingContent(this.s5j_1, this.w5j_1, tmp_13, this.x5j_1, this.u5j_1, Logging$lambda$logRequestOkHttpFormat$lambda, this);
+              if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                return suspendResult;
+              }
+              continue $sm;
+            } else {
+              this.m9_1 = 1;
+              suspendResult = invoke$logOutgoingContent(this.s5j_1, this.w5j_1, this.t5j_1.i3i_1, this.x5j_1, this.u5j_1, VOID, this);
+              if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                return suspendResult;
+              }
+              continue $sm;
+            }
+
+          case 1:
+            this.a5k_1 = suspendResult;
+            this.m9_1 = 3;
+            continue $sm;
+          case 2:
+            this.a5k_1 = suspendResult;
+            this.m9_1 = 3;
+            continue $sm;
+          case 3:
+            var newContent = this.a5k_1;
+            return newContent;
+          case 4:
+            throw this.p9_1;
+        }
+      } catch ($p) {
+        var e = $p;
+        if (this.n9_1 === 4) {
+          throw e;
+        } else {
+          this.m9_1 = this.n9_1;
+          this.p9_1 = e;
+        }
+      }
+     while (true);
+  };
+  function $invoke$logResponseBodyCOROUTINE$7($this_createClientPlugin, response, body, logLines, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this.j5k_1 = $this_createClientPlugin;
+    this.k5k_1 = response;
+    this.l5k_1 = body;
+    this.m5k_1 = logLines;
+  }
+  protoOf($invoke$logResponseBodyCOROUTINE$7).ea = function () {
+    var suspendResult = this.o9_1;
+    $sm: do
+      try {
+        var tmp = this.m9_1;
+        switch (tmp) {
+          case 0:
+            this.n9_1 = 4;
+            this.m5k_1.n('');
+            this.m9_1 = 1;
+            suspendResult = invoke$detectIfBinary(this.j5k_1, this.l5k_1, contentLength(this.k5k_1), contentType(this.k5k_1), this.k5k_1.a30(), this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            this.n5k_1 = suspendResult;
+            this.o5k_1 = this.n5k_1.cc();
+            this.p5k_1 = this.n5k_1.dc();
+            this.q5k_1 = this.n5k_1.qp();
+            this.r5k_1 = this.k5k_1.a3m().j2q_1.a3(this.k5k_1.z3l().j2q_1);
+            if (equals(this.p5k_1, new Long(0, 0))) {
+              this.m5k_1.n('<-- END HTTP (' + this.r5k_1.toString() + 'ms, ' + toString_0(this.p5k_1) + '-byte body)');
+              return Unit_instance;
+            }
+
+            if (!this.o5k_1) {
+              this.t5k_1 = contentType(this.k5k_1);
+              var tmp_0 = this;
+              var tmp_1;
+              if (!(this.t5k_1 == null)) {
+                var tmp0_elvis_lhs = charset(this.t5k_1);
+                tmp_1 = tmp0_elvis_lhs == null ? Charsets_getInstance().q1x_1 : tmp0_elvis_lhs;
+              } else {
+                tmp_1 = Charsets_getInstance().q1x_1;
+              }
+              tmp_0.u5k_1 = tmp_1;
+              this.m9_1 = 2;
+              suspendResult = readRemaining(this.q5k_1, this);
+              if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                return suspendResult;
+              }
+              continue $sm;
+            } else {
+              var tmp_2 = this;
+              var type = 'binary';
+              if (this.k5k_1.a30().c2p(HttpHeaders_getInstance().k2w_1)) {
+                type = 'encoded';
+              }
+              var tmp_3;
+              if (!(this.p5k_1 == null)) {
+                tmp_3 = this.m5k_1.n('<-- END HTTP (' + this.r5k_1.toString() + 'ms, ' + type + ' ' + toString_0(this.p5k_1) + '-byte body omitted)');
+              } else {
+                tmp_3 = this.m5k_1.n('<-- END HTTP (' + this.r5k_1.toString() + 'ms, ' + type + ' body omitted)');
+              }
+              tmp_2.s5k_1 = tmp_3;
+              this.m9_1 = 3;
+              continue $sm;
+            }
+
+          case 2:
+            var ARGUMENT = suspendResult;
+            var ARGUMENT_0 = readText(ARGUMENT, this.u5k_1);
+            this.m5k_1.n(ARGUMENT_0);
+            this.s5k_1 = this.m5k_1.n('<-- END HTTP (' + this.r5k_1.toString() + 'ms, ' + toString_0(this.p5k_1) + '-byte body)');
+            this.m9_1 = 3;
+            continue $sm;
+          case 3:
+            return Unit_instance;
+          case 4:
+            throw this.p9_1;
+        }
+      } catch ($p) {
+        var e = $p;
+        if (this.n9_1 === 4) {
+          throw e;
+        } else {
+          this.m9_1 = this.n9_1;
+          this.p9_1 = e;
+        }
+      }
+     while (true);
+  };
+  function $invoke$logResponseOkHttpFormatCOROUTINE$8(sanitizedHeaders, level, $this_createClientPlugin, response, logLines, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this.d5l_1 = sanitizedHeaders;
+    this.e5l_1 = level;
+    this.f5l_1 = $this_createClientPlugin;
+    this.g5l_1 = response;
+    this.h5l_1 = logLines;
+  }
+  protoOf($invoke$logResponseOkHttpFormatCOROUTINE$8).ea = function () {
+    var suspendResult = this.o9_1;
+    $sm: do
+      try {
+        var tmp = this.m9_1;
+        switch (tmp) {
+          case 0:
+            this.n9_1 = 4;
+            if (invoke$isNone(this.e5l_1))
+              return this.g5l_1;
+            var tmp_0 = this;
+            var tmp0_safe_receiver = this.g5l_1.a30().ze(HttpHeaders_getInstance().m2w_1);
+            tmp_0.i5l_1 = tmp0_safe_receiver == null ? null : toLongOrNull(tmp0_safe_receiver);
+            this.j5l_1 = get_request(this.g5l_1);
+            this.k5l_1 = this.g5l_1.a3m().j2q_1.a3(this.g5l_1.z3l().j2q_1);
+            this.l5l_1 = this.g5l_1.a30().ze(HttpHeaders_getInstance().t2y_1) === 'chunked' && (invoke$isInfo(this.e5l_1) || invoke$isHeaders(this.e5l_1)) ? '<-- ' + this.g5l_1.o35().toString() + ' ' + pathQuery(this.j5l_1.t3k()) + ' (' + this.k5l_1.toString() + 'ms, unknown-byte body)' : invoke$isInfo(this.e5l_1) && !(this.i5l_1 == null) ? '<-- ' + this.g5l_1.o35().toString() + ' ' + pathQuery(this.j5l_1.t3k()) + ' (' + this.k5l_1.toString() + 'ms, ' + toString_0(this.i5l_1) + '-byte body)' : invoke$isBody(this.e5l_1) || (invoke$isInfo(this.e5l_1) && this.i5l_1 == null) || (invoke$isHeaders(this.e5l_1) && !(this.i5l_1 == null)) || this.g5l_1.a30().ze(HttpHeaders_getInstance().k2w_1) === 'gzip' ? '<-- ' + this.g5l_1.o35().toString() + ' ' + pathQuery(this.j5l_1.t3k()) + ' (' + this.k5l_1.toString() + 'ms)' : '<-- ' + this.g5l_1.o35().toString() + ' ' + pathQuery(this.j5l_1.t3k()) + ' (' + this.k5l_1.toString() + 'ms, unknown-byte body)';
+            this.h5l_1.n(this.l5l_1);
+            if (!invoke$isHeaders(this.e5l_1) && !invoke$isBody(this.e5l_1)) {
+              return this.g5l_1;
+            }
+
+            var _iterator__ex2g4s = this.g5l_1.a30().b2p().p();
+            while (_iterator__ex2g4s.q()) {
+              var _destruct__k2r9zo = _iterator__ex2g4s.r();
+              var name = _destruct__k2r9zo.y();
+              var values = _destruct__k2r9zo.z();
+              var tmp0 = this.d5l_1;
+              var tmp$ret$0 = Unit_instance;
+              l$ret$1: do {
+                var _iterator__ex2g4s_0 = tmp0.p();
+                while (_iterator__ex2g4s_0.q()) {
+                  var element = _iterator__ex2g4s_0.r();
+                  if (element.q5l_1(name)) {
+                    tmp$ret$0 = element;
+                    break l$ret$1;
+                  }
+                }
+                tmp$ret$0 = null;
+              }
+               while (false);
+              if (tmp$ret$0 == null) {
+                this.h5l_1.n(name + ': ' + joinToString(values, ', '));
+              } else {
+                this.h5l_1.n(name + ': \u2588\u2588');
+              }
+            }
+
+            if (!invoke$isBody(this.e5l_1)) {
+              this.h5l_1.n('<-- END HTTP');
+              return this.g5l_1;
+            }
+
+            if (!(this.i5l_1 == null) && equals(this.i5l_1, new Long(0, 0))) {
+              this.h5l_1.n('<-- END HTTP (' + this.k5l_1.toString() + 'ms, ' + toString_0(this.i5l_1) + '-byte body)');
+              return this.g5l_1;
+            }
+
+            if (equals(contentType(this.g5l_1), Text_getInstance().k2v_1)) {
+              this.h5l_1.n('<-- END HTTP (streaming)');
+              return this.g5l_1;
+            }
+
+            if (get_isSaved(this.g5l_1)) {
+              this.m9_1 = 3;
+              suspendResult = invoke$logResponseBody(this.f5l_1, this.g5l_1, this.g5l_1.r3k(), this.h5l_1, this);
+              if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                return suspendResult;
+              }
+              continue $sm;
+            } else {
+              this.m9_1 = 1;
+              continue $sm;
+            }
+
+          case 1:
+            this.m5l_1 = split(this.g5l_1.r3k(), this.g5l_1);
+            this.n5l_1 = this.m5l_1.cc();
+            this.o5l_1 = this.m5l_1.dc();
+            this.m9_1 = 2;
+            suspendResult = invoke$logResponseBody(this.f5l_1, this.g5l_1, this.o5l_1, this.h5l_1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 2:
+            var call = wrapWithContent(this.g5l_1.p3l(), this.n5l_1);
+            return call.h3h();
+          case 3:
+            return this.g5l_1;
+          case 4:
+            throw this.p9_1;
+        }
+      } catch ($p) {
+        var e = $p;
+        if (this.n9_1 === 4) {
+          throw e;
+        } else {
+          this.m9_1 = this.n9_1;
+          this.p9_1 = e;
+        }
+      }
+     while (true);
+  };
+  function LoggingFormat_Default_getInstance() {
+    LoggingFormat_initEntries();
+    return LoggingFormat_Default_instance;
+  }
+  function LoggingFormat_OkHttp_getInstance() {
+    LoggingFormat_initEntries();
+    return LoggingFormat_OkHttp_instance;
+  }
+  var properties_initialized_Logging_kt_588vu7;
+  function _init_properties_Logging_kt__66pui5() {
+    if (!properties_initialized_Logging_kt_588vu7) {
+      properties_initialized_Logging_kt_588vu7 = true;
+      // Inline function 'io.ktor.util.AttributeKey' call
+      var name = 'CallLogger';
+      // Inline function 'io.ktor.util.reflect.typeInfo' call
+      var tmp = getKClass(HttpClientCallLogger);
+      // Inline function 'io.ktor.util.reflect.typeOfOrNull' call
+      var tmp_0;
+      try {
+        tmp_0 = createKType(getKClass(HttpClientCallLogger), arrayOf([]), false);
+      } catch ($p) {
+        var tmp_1;
+        if ($p instanceof Error) {
+          var _unused_var__etf5q3 = $p;
+          tmp_1 = null;
+        } else {
+          throw $p;
+        }
+        tmp_0 = tmp_1;
+      }
+      var tmp$ret$0 = tmp_0;
+      var tmp$ret$1 = new TypeInfo(tmp, tmp$ret$0);
+      ClientCallLogger = new AttributeKey(name, tmp$ret$1);
+      // Inline function 'io.ktor.util.AttributeKey' call
+      var name_0 = 'DisableLogging';
+      // Inline function 'io.ktor.util.reflect.typeInfo' call
+      var tmp_2 = getKClass(Unit);
+      // Inline function 'io.ktor.util.reflect.typeOfOrNull' call
+      var tmp_3;
+      try {
+        tmp_3 = createKType(getKClass(Unit), arrayOf([]), false);
+      } catch ($p) {
+        var tmp_4;
+        if ($p instanceof Error) {
+          var _unused_var__etf5q3_0 = $p;
+          tmp_4 = null;
+        } else {
+          throw $p;
+        }
+        tmp_3 = tmp_4;
+      }
+      var tmp$ret$0_0 = tmp_3;
+      var tmp$ret$1_0 = new TypeInfo(tmp_2, tmp$ret$0_0);
+      DisableLogging = new AttributeKey(name_0, tmp$ret$1_0);
+      var tmp_5 = LoggingConfig$_init_$ref_f1nb0k();
+      Logging = createClientPlugin('Logging', tmp_5, Logging$lambda);
+    }
+  }
+  function logHeaders(_this__u8e3s4, headers, sanitizedHeaders) {
+    // Inline function 'kotlin.collections.sortedBy' call
+    var this_0 = toList(headers);
+    // Inline function 'kotlin.comparisons.compareBy' call
+    var tmp = logHeaders$lambda;
+    var tmp$ret$0 = new sam$kotlin_Comparator$0(tmp);
+    var sortedHeaders = sortedWith(this_0, tmp$ret$0);
+    // Inline function 'kotlin.collections.forEach' call
+    var _iterator__ex2g4s = sortedHeaders.p();
+    while (_iterator__ex2g4s.q()) {
+      var element = _iterator__ex2g4s.r();
+      // Inline function 'kotlin.collections.component1' call
+      var key = element.y();
+      // Inline function 'kotlin.collections.component2' call
+      var values = element.z();
+      var tmp$ret$5;
+      $l$block: {
+        // Inline function 'kotlin.collections.firstOrNull' call
+        var _iterator__ex2g4s_0 = sanitizedHeaders.p();
+        while (_iterator__ex2g4s_0.q()) {
+          var element_0 = _iterator__ex2g4s_0.r();
+          if (element_0.q5l_1(key)) {
+            tmp$ret$5 = element_0;
+            break $l$block;
+          }
+        }
+        tmp$ret$5 = null;
+      }
+      var tmp0_safe_receiver = tmp$ret$5;
+      var placeholder = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.p5l_1;
+      logHeader(_this__u8e3s4, key, placeholder == null ? joinToString(values, '; ') : placeholder);
+    }
+  }
+  function logHeader(_this__u8e3s4, key, value) {
+    // Inline function 'kotlin.text.appendLine' call
+    var value_0 = '-> ' + key + ': ' + value;
+    // Inline function 'kotlin.text.appendLine' call
+    _this__u8e3s4.o(value_0).y8(_Char___init__impl__6a9atx(10));
+  }
+  function logResponseHeader(log, response, level, sanitizedHeaders) {
+    // Inline function 'kotlin.with' call
+    if (level.y5d_1) {
+      // Inline function 'kotlin.text.appendLine' call
+      var value = 'RESPONSE: ' + response.o35().toString();
+      // Inline function 'kotlin.text.appendLine' call
+      log.x8(value).y8(_Char___init__impl__6a9atx(10));
+      // Inline function 'kotlin.text.appendLine' call
+      var value_0 = 'METHOD: ' + response.p3l().q3k().m3l().toString();
+      // Inline function 'kotlin.text.appendLine' call
+      log.x8(value_0).y8(_Char___init__impl__6a9atx(10));
+      // Inline function 'kotlin.text.appendLine' call
+      var value_1 = 'FROM: ' + response.p3l().q3k().t3k().toString();
+      // Inline function 'kotlin.text.appendLine' call
+      log.x8(value_1).y8(_Char___init__impl__6a9atx(10));
+    }
+    if (level.z5d_1) {
+      // Inline function 'kotlin.text.appendLine' call
+      var value_2 = 'COMMON HEADERS';
+      // Inline function 'kotlin.text.appendLine' call
+      log.x8(value_2).y8(_Char___init__impl__6a9atx(10));
+      logHeaders(log, response.a30().b2p(), sanitizedHeaders);
+    }
+  }
+  function logResponseBody(log, contentType, content, $completion) {
+    var tmp = new $logResponseBodyCOROUTINE$10(log, contentType, content, $completion);
+    tmp.o9_1 = Unit_instance;
+    tmp.p9_1 = null;
+    return tmp.ea();
+  }
+  function sam$kotlin_Comparator$0(function_0) {
+    this.d5s_1 = function_0;
+  }
+  protoOf(sam$kotlin_Comparator$0).of = function (a, b) {
+    return this.d5s_1(a, b);
+  };
+  protoOf(sam$kotlin_Comparator$0).compare = function (a, b) {
+    return this.of(a, b);
+  };
+  protoOf(sam$kotlin_Comparator$0).s3 = function () {
+    return this.d5s_1;
+  };
+  protoOf(sam$kotlin_Comparator$0).equals = function (other) {
+    var tmp;
+    if (!(other == null) ? isInterface(other, Comparator) : false) {
+      var tmp_0;
+      if (!(other == null) ? isInterface(other, FunctionAdapter) : false) {
+        tmp_0 = equals(this.s3(), other.s3());
+      } else {
+        tmp_0 = false;
+      }
+      tmp = tmp_0;
+    } else {
+      tmp = false;
+    }
+    return tmp;
+  };
+  protoOf(sam$kotlin_Comparator$0).hashCode = function () {
+    return hashCode(this.s3());
+  };
+  function logHeaders$lambda(a, b) {
+    // Inline function 'kotlin.comparisons.compareValuesBy' call
+    var tmp = a.y();
+    var tmp$ret$1 = b.y();
+    return compareValues(tmp, tmp$ret$1);
+  }
+  function $logResponseBodyCOROUTINE$10(log, contentType, content, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this.r5r_1 = log;
+    this.s5r_1 = contentType;
+    this.t5r_1 = content;
+  }
+  protoOf($logResponseBodyCOROUTINE$10).ea = function () {
+    var suspendResult = this.o9_1;
+    $sm: do
+      try {
+        var tmp = this.m9_1;
+        switch (tmp) {
+          case 0:
+            this.n9_1 = 3;
+            var tmp_0 = this;
+            tmp_0.u5r_1 = this.r5r_1;
+            this.v5r_1 = this.u5r_1;
+            var tmp_1 = this;
+            tmp_1.w5r_1 = this.v5r_1;
+            this.x5r_1 = this.w5r_1;
+            var tmp0 = this.x5r_1;
+            var value = 'BODY Content-Type: ' + toString_0(this.s5r_1);
+            tmp0.x8(value).y8(_Char___init__impl__6a9atx(10));
+            var tmp2 = this.x5r_1;
+            var value_0 = 'BODY START';
+            tmp2.x8(value_0).y8(_Char___init__impl__6a9atx(10));
+            var tmp_2 = this;
+            tmp_2.y5r_1 = this.t5r_1;
+            var tmp_3 = this;
+            var tmp0_safe_receiver = this.s5r_1;
+            var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : charset(tmp0_safe_receiver);
+            tmp_3.z5r_1 = tmp1_elvis_lhs == null ? Charsets_getInstance().q1x_1 : tmp1_elvis_lhs;
+            this.a5s_1 = this.y5r_1;
+            this.b5s_1 = this.z5r_1;
+            this.n9_1 = 2;
+            this.m9_1 = 1;
+            suspendResult = readRemaining(this.a5s_1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            var ARGUMENT = suspendResult;
+            this.c5s_1 = readText(ARGUMENT, this.b5s_1);
+            this.n9_1 = 3;
+            this.m9_1 = 4;
+            continue $sm;
+          case 2:
+            this.n9_1 = 3;
+            var tmp_4 = this.p9_1;
+            if (tmp_4 instanceof Error) {
+              var cause = this.p9_1;
+              var tmp_5 = this;
+              tmp_5.c5s_1 = null;
+              this.m9_1 = 4;
+              continue $sm;
+            } else {
+              throw this.p9_1;
+            }
+
+          case 3:
+            throw this.p9_1;
+          case 4:
+            this.n9_1 = 3;
+            var tmp2_elvis_lhs = this.c5s_1;
+            var message = tmp2_elvis_lhs == null ? '[response body omitted]' : tmp2_elvis_lhs;
+            this.x5r_1.x8(message).y8(_Char___init__impl__6a9atx(10));
+            this.x5r_1.x8('BODY END');
+            return Unit_instance;
+        }
+      } catch ($p) {
+        var e = $p;
+        if (this.n9_1 === 3) {
+          throw e;
+        } else {
+          this.m9_1 = this.n9_1;
+          this.p9_1 = e;
+        }
+      }
+     while (true);
+  };
+  function observe(_this__u8e3s4, log, $completion) {
+    var tmp = new $observeCOROUTINE$11(_this__u8e3s4, log, $completion);
+    tmp.o9_1 = Unit_instance;
+    tmp.p9_1 = null;
+    return tmp.ea();
+  }
+  function toReadChannel(_this__u8e3s4) {
+    var tmp = GlobalScope_instance;
+    var tmp_0 = Dispatchers_getInstance().r13_1;
+    return writer(tmp, tmp_0, VOID, toReadChannel$slambda_0(_this__u8e3s4, null)).b1v_1;
+  }
+  function toReadChannel$slambda($this_toReadChannel, resultContinuation) {
+    this.a5t_1 = $this_toReadChannel;
+    CoroutineImpl.call(this, resultContinuation);
+  }
+  protoOf(toReadChannel$slambda).t3a = function ($this$writer, $completion) {
+    var tmp = this.u3a($this$writer, $completion);
+    tmp.o9_1 = Unit_instance;
+    tmp.p9_1 = null;
+    return tmp.ea();
+  };
+  protoOf(toReadChannel$slambda).ua = function (p1, $completion) {
+    return this.t3a(p1 instanceof WriterScope ? p1 : THROW_CCE(), $completion);
+  };
+  protoOf(toReadChannel$slambda).ea = function () {
+    var suspendResult = this.o9_1;
+    $sm: do
+      try {
+        var tmp = this.m9_1;
+        switch (tmp) {
+          case 0:
+            this.n9_1 = 2;
+            this.m9_1 = 1;
+            suspendResult = this.a5t_1.v35(this.b5t_1.d1v_1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            return Unit_instance;
+          case 2:
+            throw this.p9_1;
+        }
+      } catch ($p) {
+        var e = $p;
+        if (this.n9_1 === 2) {
+          throw e;
+        } else {
+          this.m9_1 = this.n9_1;
+          this.p9_1 = e;
+        }
+      }
+     while (true);
+  };
+  protoOf(toReadChannel$slambda).u3a = function ($this$writer, completion) {
+    var i = new toReadChannel$slambda(this.a5t_1, completion);
+    i.b5t_1 = $this$writer;
+    return i;
+  };
+  function toReadChannel$slambda_0($this_toReadChannel, resultContinuation) {
+    var i = new toReadChannel$slambda($this_toReadChannel, resultContinuation);
+    var l = function ($this$writer, $completion) {
+      return i.t3a($this$writer, $completion);
+    };
+    l.$arity = 1;
+    return l;
+  }
+  function $observeCOROUTINE$11(_this__u8e3s4, log, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this.m5s_1 = _this__u8e3s4;
+    this.n5s_1 = log;
+  }
+  protoOf($observeCOROUTINE$11).ea = function () {
+    var suspendResult = this.o9_1;
+    $sm: do
+      try {
+        var tmp = this.m9_1;
+        switch (tmp) {
+          case 0:
+            this.n9_1 = 6;
+            this.o5s_1 = this.m5s_1;
+            var tmp_0 = this.o5s_1;
+            if (tmp_0 instanceof ByteArrayContent) {
+              this.m9_1 = 3;
+              suspendResult = writeFully(this.n5s_1, this.m5s_1.q35(), VOID, VOID, this);
+              if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                return suspendResult;
+              }
+              continue $sm;
+            } else {
+              var tmp_1 = this.o5s_1;
+              if (tmp_1 instanceof ReadChannelContent) {
+                var tmp_2 = this;
+                var responseChannel = new ByteChannel();
+                var content = this.m5s_1.t35();
+                copyToBoth(content, this.n5s_1, responseChannel);
+                tmp_2.p5s_1 = new LoggedContent(this.m5s_1, responseChannel);
+                this.m9_1 = 5;
+                continue $sm;
+              } else {
+                var tmp_3 = this.o5s_1;
+                if (tmp_3 instanceof WriteChannelContent) {
+                  var tmp_4 = this;
+                  var responseChannel_0 = new ByteChannel();
+                  var content_0 = toReadChannel(this.m5s_1);
+                  copyToBoth(content_0, this.n5s_1, responseChannel_0);
+                  tmp_4.p5s_1 = new LoggedContent(this.m5s_1, responseChannel_0);
+                  this.m9_1 = 5;
+                  continue $sm;
+                } else {
+                  var tmp_5 = this.o5s_1;
+                  if (tmp_5 instanceof ContentWrapper) {
+                    this.q5s_1 = this.m5s_1;
+                    this.m9_1 = 2;
+                    suspendResult = observe(this.m5s_1.z35(), this.n5s_1, this);
+                    if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                      return suspendResult;
+                    }
+                    continue $sm;
+                  } else {
+                    var tmp_6;
+                    var tmp_7 = this.o5s_1;
+                    if (tmp_7 instanceof NoContent) {
+                      tmp_6 = true;
+                    } else {
+                      var tmp_8 = this.o5s_1;
+                      tmp_6 = tmp_8 instanceof ProtocolUpgrade;
+                    }
+                    if (tmp_6) {
+                      this.m9_1 = 1;
+                      suspendResult = this.n5s_1.e1n(this);
+                      if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                        return suspendResult;
+                      }
+                      continue $sm;
+                    } else {
+                      var tmp_9 = this;
+                      noWhenBranchMatchedException();
+                    }
+                  }
+                }
+              }
+            }
+
+            break;
+          case 1:
+            this.p5s_1 = this.m5s_1;
+            this.m9_1 = 5;
+            continue $sm;
+          case 2:
+            this.r5s_1 = suspendResult;
+            this.p5s_1 = this.q5s_1.a36(this.r5s_1);
+            this.m9_1 = 5;
+            continue $sm;
+          case 3:
+            this.m9_1 = 4;
+            suspendResult = this.n5s_1.e1n(this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 4:
+            this.p5s_1 = this.m5s_1;
+            this.m9_1 = 5;
+            continue $sm;
+          case 5:
+            return this.p5s_1;
+          case 6:
+            throw this.p9_1;
+        }
+      } catch ($p) {
+        var e = $p;
+        if (this.n9_1 === 6) {
+          throw e;
+        } else {
+          this.m9_1 = this.n9_1;
+          this.p9_1 = e;
+        }
+      }
+     while (true);
+  };
+  function MDCContext() {
+    return MDCContextElement_instance;
+  }
+  function MDCContextKey() {
+  }
+  var MDCContextKey_instance;
+  function MDCContextKey_getInstance() {
+    return MDCContextKey_instance;
+  }
+  function MDCContextElement() {
+  }
+  protoOf(MDCContextElement).y = function () {
+    return MDCContextKey_instance;
+  };
+  protoOf(MDCContextElement).toString = function () {
+    return 'MDCContext';
+  };
+  var MDCContextElement_instance;
+  function MDCContextElement_getInstance() {
+    return MDCContextElement_instance;
+  }
+  function get_DEFAULT(_this__u8e3s4) {
+    return get_SIMPLE(_this__u8e3s4);
+  }
+  //region block: post-declaration
+  protoOf(MDCContextElement).la = get;
+  protoOf(MDCContextElement).oj = fold;
+  protoOf(MDCContextElement).nj = minusKey;
+  protoOf(MDCContextElement).pj = plus;
+  //endregion
+  //region block: init
+  Companion_instance = new Companion();
+  SendHook_instance = new SendHook();
+  ResponseAfterEncodingHook_instance = new ResponseAfterEncodingHook();
+  ResponseHook_instance = new ResponseHook();
+  ReceiveHook_instance = new ReceiveHook();
+  MDCContextKey_instance = new MDCContextKey();
+  MDCContextElement_instance = new MDCContextElement();
+  //endregion
+  //region block: exports
+  _.$_$ = _.$_$ || {};
+  _.$_$.a = LogLevel_ALL_getInstance;
+  _.$_$.b = LogLevel_BODY_getInstance;
+  _.$_$.c = Companion_instance;
+  _.$_$.d = get_DEFAULT;
+  _.$_$.e = get_Logging;
+  //endregion
+  return _;
+}));
+
+//# sourceMappingURL=ktor-ktor-client-ktor-client-plugins-ktor-client-logging.js.map

@@ -1,41 +1,40 @@
 {
-  "name": "@identra/core",
-  "version": "1.0.0",
-  "description": "The foundational codebase powering the Identra ecosystem. Provides shared logic, cryptography, and data models used across all Identra products — from Pass to Gate.",
-  "main": "index.js",
-  "exports": {
-    ".": {
-      "import": "./dist/index.js"
-    }
-  },
-  "scripts": {
-    "test-index": "ts-node ./src/index.ts",
-    "build": "tsc"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Identra-Platform/Identra-Core.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "module",
-  "bugs": {
-    "url": "https://github.com/Identra-Platform/Identra-Core/issues"
-  },
-  "homepage": "https://github.com/Identra-Platform/Identra-Core#readme",
-  "devDependencies": {
-    "@types/uuid": "^10.0.0",
-    "@types/ws": "^8.18.1",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.9.3"
-  },
-  "dependencies": {
-    "ajv-formats": "^3.0.1",
-    "ajv": "^8.17.1",
-    "multiformats": "^13.4.1",
-    "tweetnacl": "^1.0.3",
-    "uuid": "^13.0.0",
-    "ws": "^8.18.3"
-  }
+  "name": "waltid-identity",
+  "version": "1.0.0-SNAPSHOT",
+  "private": true,
+  "workspaces": [
+    "packages/waltid-identity-waltid-libraries-waltid-core-wallet",
+    "packages/waltid-identity-waltid-libraries-waltid-core-wallet-test",
+    "packages/dids",
+    "packages/dids-test",
+    "packages/library-commons",
+    "packages/library-commons-test",
+    "packages/waltid-permissions",
+    "packages/waltid-permissions-test",
+    "packages/definitions-parser",
+    "packages/definitions-parser-test",
+    "packages/digital-credentials",
+    "packages/digital-credentials-test",
+    "packages/waltid-identity-waltid-libraries-credentials-waltid-mdoc-credentials",
+    "packages/waltid-identity-waltid-libraries-credentials-waltid-mdoc-credentials-test",
+    "packages/verification-policies",
+    "packages/verification-policies-test",
+    "packages/w3c-credentials",
+    "packages/w3c-credentials-test",
+    "packages/crypto",
+    "packages/crypto-test",
+    "packages/waltid-identity-waltid-libraries-protocols-waltid-openid4vc",
+    "packages/waltid-identity-waltid-libraries-protocols-waltid-openid4vc-test",
+    "packages/waltid-identity-waltid-libraries-sdjwt-waltid-sdjwt",
+    "packages/waltid-identity-waltid-libraries-sdjwt-waltid-sdjwt-test",
+    "packages_imported/Kotlin-DateTime-library-kotlinx-datetime/0.6.2",
+    "packages_imported/ktor-ktor-client-ktor-client-core/3.1.2",
+    "packages_imported/lombok/1.18.36"
+  ],
+  "devDependencies": {},
+  "dependencies": {},
+  "peerDependencies": {},
+  "optionalDependencies": {},
+  "bundledDependencies": [],
+  "resolutions": {}
 }

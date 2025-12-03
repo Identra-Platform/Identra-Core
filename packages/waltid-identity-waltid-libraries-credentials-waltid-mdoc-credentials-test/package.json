@@ -1,0 +1,19 @@
+{
+  "name": "waltid-identity-waltid-libraries-credentials-waltid-mdoc-credentials-test",
+  "version": "1.0.0-SNAPSHOT",
+  "main": "kotlin/waltid-identity-waltid-libraries-credentials-waltid-mdoc-credentials-test.js",
+  "devDependencies": {
+    "typescript": "5.5.4",
+    "mocha": "10.7.3",
+    "source-map-support": "0.5.21",
+    "kotlin-web-helpers": "2.0.0"
+  },
+  "dependencies": {
+    "cose-js": "0.9.0",
+    "@js-joda/core": "3.2.0",
+    "format-util": "^1.0.5"
+  },
+  "peerDependencies": {},
+  "optionalDependencies": {},
+  "bundledDependencies": []
+}

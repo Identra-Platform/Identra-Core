@@ -1,0 +1,12 @@
+{
+  "name": "waltid-permissions",
+  "version": "1.0.0-SNAPSHOT",
+  "main": "kotlin/waltid-permissions.js",
+  "devDependencies": {
+    "typescript": "5.5.4"
+  },
+  "dependencies": {},
+  "peerDependencies": {},
+  "optionalDependencies": {},
+  "bundledDependencies": []
+}
